@@ -34,4 +34,9 @@ export interface ButtonProps extends Omit<FieldPublicProps, 'title'> {
   url: string;
 }
 
-export type ComponentProps = SelectFieldProps | InputProps | TextareaProps | NumberProps | DateProps | ButtonProps;
+export interface IntegrationFormProps extends FieldPublicProps {
+  type: ComponentTypes.interationForm;
+  submitUrl: string;
+}
+
+export type ComponentProps = IntegrationFormProps | SelectFieldProps | InputProps | TextareaProps | NumberProps | DateProps | ButtonProps;
