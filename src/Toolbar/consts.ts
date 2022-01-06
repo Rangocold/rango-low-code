@@ -1,3 +1,6 @@
+import { ComponentProps } from "../types";
+import { v4 as genUUID } from 'uuid';
+
 export enum ComponentTypes {
   select = 1,
   input,
@@ -5,6 +8,43 @@ export enum ComponentTypes {
   date,
   number,
   button,
+}
+
+export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
+  [ComponentTypes.select]: {
+    title: '',
+    uuid: genUUID(),
+    type: ComponentTypes.select,
+    options: [],
+    single: true,
+  },
+  [ComponentTypes.input]: {
+    title: '',
+    uuid: genUUID(),
+    type: ComponentTypes.input,
+  },
+  [ComponentTypes.textarea]: {
+    title: '',
+    uuid: genUUID(),
+    type: ComponentTypes.textarea,
+  },
+  [ComponentTypes.date]: {
+    title: '',
+    uuid: genUUID(),
+    type: ComponentTypes.date,
+    showTime: true,
+  },
+  [ComponentTypes.number]: {
+    title: '',
+    uuid: genUUID(),
+    type: ComponentTypes.number,
+  },
+  [ComponentTypes.button]: {
+    text: '',
+    url: '',
+    uuid: genUUID(),
+    type: ComponentTypes.button,
+  },
 }
 
 export const ComponentOptions = [

@@ -1,6 +1,6 @@
 import { ComponentTypes } from "./consts";
+import type { ComponentProps } from "../types";
 
 export interface ToolbarProps {
-  onAddField: (fieldType: ComponentTypes) => void;
-  fieldList: 
+  onAddField: (fieldType: ComponentProps) => void;
 }
