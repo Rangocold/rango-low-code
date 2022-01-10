@@ -21,12 +21,12 @@ export default function ConfigDrawer({
     } else {
       form.setFieldsValue({});
     }
-
   }, [state.editingComponentUuid, state.components]);
 
-  const onValuesChange = useCallback((_: unknown, allValues: ComponentProps) => {
-
-  }, [state.editingComponentUuid, state.components]);
+  const onValuesChange = useCallback(
+    (_: unknown, allValues: ComponentProps) => {},
+    [state.editingComponentUuid, state.components]
+  );
   return (
     <Drawer
       visible={visible}
@@ -42,9 +42,7 @@ export default function ConfigDrawer({
         </Row>
       }
     >
-      <Form form={form} onValuesChange={onValuesChange}>
-
-      </Form>
+      <Form form={form} onValuesChange={onValuesChange}></Form>
     </Drawer>
   );
 }

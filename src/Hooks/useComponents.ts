@@ -1,8 +1,7 @@
+import { updateArray } from '../Utils';
 import { ComponentProps } from '../types';
 import { useCallback } from 'react';
 import { useGlobalContext } from '../Stores';
-import { cloneDeep } from 'lodash';
-import { clone } from '@babel/types';
 
 export function useComponents() {
   const { state } = useGlobalContext();
@@ -29,9 +28,31 @@ export function useComponents() {
     [state.components]
   );
 
-  const updateComponentByUuid = useCallback((uuid: string, newValue: ComponentProps) => {
-    
-  }, [state.components]);
+  const updateComponentByUuid = useCallback(
+    (uuid: string, newValue: ComponentProps, components?: ComponentProps[]) => {
+      if (!Array.isArray(components)) {
+        return false;
+      }
+
+      for (let i = 0; i < components.length; ++i) {
+        const current = components[i];
+        if (current.uuid === uuid) {
+          components[i] = newValue;
+          return true;
+        }
+
+        if ('components' in current) {
+          const tmp = updateComponentByUuid(uuid, newValue, current.components);
+          if (tmp) {
+            return true;
+          }
+        }
+      }
+
+      return false;
+    },
+    [state.components]
+  );
 
   return {
     findComponentByUuid,

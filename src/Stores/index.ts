@@ -1,5 +1,10 @@
 import React, { useContext, useReducer } from 'react';
-import { GlobalContextStateProps, GlobalContextAction, GlobalContextActionEnum, GlobalContextProps } from './types';
+import {
+  GlobalContextStateProps,
+  GlobalContextAction,
+  GlobalContextActionEnum,
+  GlobalContextProps,
+} from './types';
 
 export function reducer(
   state: GlobalContextStateProps,
@@ -12,7 +17,7 @@ export function reducer(
     }
     case GlobalContextActionEnum.setEditingUuid: {
       state.editingComponentUuid = action.payload;
-      return { ...state }
+      return { ...state };
     }
   }
 }
@@ -20,8 +25,7 @@ export function reducer(
 export const InitialContextPure: GlobalContextStateProps = {
   components: [],
   editingComponentUuid: '',
-}
-
+};
 
 export const GlobalContext = React.createContext<GlobalContextProps>({
   state: InitialContextPure,
@@ -37,5 +41,5 @@ export function useGlobalContextReducer() {
   return {
     state,
     dispatch,
-  }
+  };
 }
