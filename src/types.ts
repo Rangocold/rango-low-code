@@ -1,3 +1,4 @@
+import { ComponentProps } from './types';
 import { ComponentTypes } from './Toolbar/consts';
 
 export interface FieldPublicProps {
@@ -38,6 +39,7 @@ export interface IntegrationFormProps extends FieldPublicProps {
   type: ComponentTypes.interationForm;
   submitUrl: string;
   button: ButtonProps;
+  components: ComponentProps[];
 }
 
 export type ComponentProps =
