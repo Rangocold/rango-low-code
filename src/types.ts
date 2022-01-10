@@ -1,4 +1,4 @@
-import { ComponentTypes } from "./Toolbar/consts";
+import { ComponentTypes } from './Toolbar/consts';
 
 export interface FieldPublicProps {
   title: string;
@@ -13,20 +13,20 @@ export interface SelectFieldProps extends FieldPublicProps {
 
 export interface InputProps extends FieldPublicProps {
   type: ComponentTypes.input;
-};
+}
 
 export interface TextareaProps extends FieldPublicProps {
   type: ComponentTypes.textarea;
-};
+}
 
 export interface NumberProps extends FieldPublicProps {
   type: ComponentTypes.number;
-};
+}
 
 export interface DateProps extends FieldPublicProps {
   type: ComponentTypes.date;
   showTime?: boolean;
-};
+}
 
 export interface ButtonProps extends Omit<FieldPublicProps, 'title'> {
   type: ComponentTypes.button;
@@ -37,6 +37,14 @@ export interface ButtonProps extends Omit<FieldPublicProps, 'title'> {
 export interface IntegrationFormProps extends FieldPublicProps {
   type: ComponentTypes.interationForm;
   submitUrl: string;
+  button: ButtonProps;
 }
 
-export type ComponentProps = IntegrationFormProps | SelectFieldProps | InputProps | TextareaProps | NumberProps | DateProps | ButtonProps;
+export type ComponentProps =
+  | IntegrationFormProps
+  | SelectFieldProps
+  | InputProps
+  | TextareaProps
+  | NumberProps
+  | DateProps
+  | ButtonProps;

@@ -1,3 +1,1 @@
-export interface ComponentOperatorProps {
-  
-}
+export interface ComponentOperatorProps {}

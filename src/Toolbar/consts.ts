@@ -1,4 +1,4 @@
-import { ComponentProps } from "../types";
+import { ComponentProps } from '../types';
 import { v4 as genUUID } from 'uuid';
 
 export enum ComponentTypes {
@@ -46,7 +46,7 @@ export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
     uuid: genUUID(),
     type: ComponentTypes.button,
   },
-}
+};
 
 export const ComponentOptions = [
   {

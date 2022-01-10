@@ -1,3 +1,1 @@
-export const ComponentConfigs = {
-
-};
+export const ComponentConfigs = {};

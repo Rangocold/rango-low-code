@@ -2,7 +2,11 @@ import React, { ComponentProps } from 'react';
 import { Drawer, Row, Col, Button, Form } from 'antd';
 import { ConfigDrawerProps } from './types';
 
-export default function ConfigDrawer({ visible, onHideDrawer, onSave }: ConfigDrawerProps) {
+export default function ConfigDrawer({
+  visible,
+  onHideDrawer,
+  onSave,
+}: ConfigDrawerProps) {
   const [form] = Form.useForm<ComponentProps>();
   return (
     <Drawer
@@ -10,12 +14,14 @@ export default function ConfigDrawer({ visible, onHideDrawer, onSave }: ConfigDr
       onClose={onHideDrawer}
       footer={
         <Row>
-          <Col><Button onClick={() => onHideDrawer()}>Cancel</Button></Col>
-          <Col><Button onClick={() => onSave(form.getFieldsValue())}>Save</Button></Col>
+          <Col>
+            <Button onClick={() => onHideDrawer()}>Cancel</Button>
+          </Col>
+          <Col>
+            <Button onClick={() => onSave(form.getFieldsValue())}>Save</Button>
+          </Col>
         </Row>
       }
-    >
-
-    </Drawer>
+    ></Drawer>
   );
 }

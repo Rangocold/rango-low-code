@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.16.13",
     "axios": "^0.24.0",
+    "pre-commit": "^1.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
+    "eslint": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -49,5 +52,9 @@
     "eslint-plugin-typescript": "^0.14.0",
     "prettier": "^2.5.1",
     "typescript-eslint-parser": "^22.0.0"
-  }
+  },
+  "pre-commit": [
+    "prettier",
+    "eslint"
+  ]
 }

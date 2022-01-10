@@ -9,5 +9,10 @@ export default function IntegrationForm(config: IntegrationFormProps) {
     const data = form.getFieldsValue();
     axios.post(config.submitUrl, data);
   }, [form, config.submitUrl]);
-  return <div><Form form={form}></Form><Button onClick={() => onSubmit()}>Submit</Button></div>
+  return (
+    <div>
+      <Form form={form}></Form>
+      <Button onClick={() => onSubmit()}>Submit</Button>
+    </div>
+  );
 }

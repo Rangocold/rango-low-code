@@ -1,5 +1,5 @@
-import { ComponentProps } from "../types";
-import type { ComponentTypes } from "./consts";
+import { ComponentProps } from '../types';
+import type { ComponentTypes } from './consts';
 
 export interface ToolbarProps {
   onAddComponent: (componentType: ComponentTypes) => void;
