@@ -37,6 +37,7 @@ export interface ButtonProps extends Omit<FieldPublicProps, 'title'> {
 export interface IntegrationFormProps extends FieldPublicProps {
   type: ComponentTypes.interationForm;
   submitUrl: string;
+  children: ComponentProps[];
 }
 
 export type ComponentProps = IntegrationFormProps | SelectFieldProps | InputProps | TextareaProps | NumberProps | DateProps | ButtonProps;
