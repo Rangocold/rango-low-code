@@ -1,4 +1,3 @@
-import { updateArray } from '../Utils';
 import { ComponentProps } from '../types';
 import { useCallback } from 'react';
 import { useGlobalContext } from '../Stores';
