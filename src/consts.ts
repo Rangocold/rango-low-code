@@ -1,5 +1,5 @@
-import { ComponentTypes } from "./Toolbar/consts";
-import { ComponentProps } from "./types";
+import { ComponentTypes } from './Toolbar/consts';
+import { ComponentProps } from './types';
 
 export const initialComponentValue: Record<ComponentTypes, ComponentProps> = {
   [ComponentTypes.interationForm]: {
@@ -29,7 +29,7 @@ export const initialComponentValue: Record<ComponentTypes, ComponentProps> = {
     type: ComponentTypes.number,
     title: '',
   },
-  [ComponentTypes.select]:　{
+  [ComponentTypes.select]: {
     uuid: '',
     type: ComponentTypes.select,
     title: '',
@@ -41,4 +41,4 @@ export const initialComponentValue: Record<ComponentTypes, ComponentProps> = {
     type: ComponentTypes.textarea,
     title: '',
   },
-}
+};

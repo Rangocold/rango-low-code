@@ -5,16 +5,15 @@ import type { IntegrationFormProps } from "../../types";
 
 export default function IntegrationForm(config: IntegrationFormProps) {
   const [form] = Form.useForm();
-  const { children } = config;
+  const { components } = config;
 
   const onSubmit = useCallback(() => {
     const data = form.getFieldsValue();
     axios.post(config.submitUrl, data);
   }, [form, config.submitUrl]);
-
   return (
     <div>
-      <Form form={form}>{/* todo render */}</Form>
+      <Form form={form}></Form>
       <Button onClick={() => onSubmit()}>Submit</Button>
     </div>
   );

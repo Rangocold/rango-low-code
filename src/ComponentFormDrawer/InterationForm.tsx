@@ -1,5 +1,3 @@
 import React from 'react';
 
-export default function InterationForm() {
-  
-}
+export default function InterationForm() {}
