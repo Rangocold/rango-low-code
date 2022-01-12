@@ -55,5 +55,6 @@ export function useComponents() {
 
   return {
     findComponentByUuid,
+    updateComponentByUuid,
   };
 }

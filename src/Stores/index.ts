@@ -19,12 +19,17 @@ export function reducer(
       state.editingComponentUuid = action.payload;
       return { ...state };
     }
+    case GlobalContextActionEnum.setRegistedComponentsMap: {
+      state.registedComponentsMap.set(action.payload.componentType, action.payload.componentConstructor);
+      return { ...state };
+    }
   }
 }
 
 export const InitialContextPure: GlobalContextStateProps = {
   components: [],
   editingComponentUuid: '',
+  registedComponentsMap: new Map(),
 };
 
 export const GlobalContext = React.createContext<GlobalContextProps>({
