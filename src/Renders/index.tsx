@@ -1,23 +1,6 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useGlobalContext } from '../Stores';
-import { ComponentProps } from '../types';
-import Container from './Container';
-
-export function RenderSpecifiedNode(component: ComponentProps) {
-  const { state } = useGlobalContext();
-  const register = useMemo(() => {
-    return state.registedComponentsMap;
-  }, [state.registedComponentsMap]);
-
-  const constructor = register[component.type];
-  const node = <Container key={component.uuid} uuid={component.uuid}>{constructor(component)}</Container>
-
-  if (React.isValidElement(node)) {
-    return node;
-  } else {
-    return null;
-  }
-}
+import { RenderSpecifiedNode } from './RenderSpecifiedNode';
 
 export default function Renders() {
   const { state } = useGlobalContext();
@@ -25,5 +8,5 @@ export default function Renders() {
     <div>
       {state.components.map((component) => RenderSpecifiedNode(component))}
     </div>
-  )
+  );
 }

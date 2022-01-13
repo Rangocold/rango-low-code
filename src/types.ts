@@ -1,4 +1,4 @@
-import { ComponentProps } from './types';
+import { ComponentProps, IntegrationFormProps } from './types';
 import { ComponentTypes } from './Toolbar/consts';
 
 export interface FieldPublicProps {
@@ -35,10 +35,16 @@ export interface ButtonProps extends Omit<FieldPublicProps, 'title'> {
   url: string;
 }
 
+export interface IntegrationFormButtonProps extends Omit<FieldPublicProps, 'title'> {
+  type: ComponentTypes.button;
+  text: string;
+  url: string;
+}
+
 export interface IntegrationFormProps extends FieldPublicProps {
   type: ComponentTypes.interationForm;
   submitUrl: string;
-  button: ButtonProps;
+  button: IntegrationFormButtonProps;
   components: ComponentProps[];
 }
 

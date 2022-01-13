@@ -44,7 +44,9 @@ export default function ConfigDrawer({
         </Row>
       }
     >
-      <Form form={form} onValuesChange={onValuesChange}>{/* todo render by fields */}</Form>
+      <Form form={form} onValuesChange={onValuesChange}>
+        {/* todo render by fields */}
+      </Form>
     </Drawer>
   );
 }

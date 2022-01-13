@@ -9,7 +9,7 @@ export default function Container(props: ContainerProps) {
     dispatch({
       type: GlobalContextActionEnum.setEditingUuid,
       payload: props.uuid,
-    })
+    });
   }, [dispatch, props.uuid]);
-  return <div onClick={() => onClick()}>{props.children}</div>
+  return <div onClick={() => onClick()}>{props.children}</div>;
 }

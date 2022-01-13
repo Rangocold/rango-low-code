@@ -20,7 +20,10 @@ export function reducer(
       return { ...state };
     }
     case GlobalContextActionEnum.setRegistedComponentsMap: {
-      state.registedComponentsMap.set(action.payload.componentType, action.payload.componentConstructor);
+      state.registedComponentsMap.set(
+        action.payload.componentType,
+        action.payload.componentConstructor
+      );
       return { ...state };
     }
   }

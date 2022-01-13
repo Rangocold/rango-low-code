@@ -1,7 +1,7 @@
-import React, { useCallback } from "react";
-import { Button, Form } from "antd";
-import axios from "axios";
-import type { IntegrationFormProps } from "../../types";
+import React, { useCallback } from 'react';
+import { Button, Form } from 'antd';
+import axios from 'axios';
+import type { IntegrationFormProps } from '../../types';
 
 export default function IntegrationForm(config: IntegrationFormProps) {
   const [form] = Form.useForm();

@@ -1,3 +1,1 @@
-export function useAddComponent() {
-  
-}
+export function useAddComponent() {}
