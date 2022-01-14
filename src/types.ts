@@ -35,7 +35,8 @@ export interface ButtonProps extends Omit<FieldPublicProps, 'title'> {
   url: string;
 }
 
-export interface IntegrationFormButtonProps extends Omit<FieldPublicProps, 'title'> {
+export interface IntegrationFormButtonProps
+  extends Omit<FieldPublicProps, 'title'> {
   type: ComponentTypes.button;
   text: string;
   url: string;
