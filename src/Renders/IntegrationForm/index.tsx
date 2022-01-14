@@ -3,6 +3,7 @@ import { Form, Button } from 'antd';
 import { IntegrationFormProps } from '../../types';
 import { RenderSpecifiedNode } from '../RenderSpecifiedNode';
 import axios from 'axios';
+import BaseForm from '../BaseForm';
 
 export default function IntegrationForm(props: IntegrationFormProps) {
   const [form] = Form.useForm();
@@ -16,16 +17,7 @@ export default function IntegrationForm(props: IntegrationFormProps) {
   return (
     <>
       <Form form={form}>
-        {props.components.map((component) => {
-          return (
-            <Form.Item
-              key={component.uuid}
-              name={component.uuid}
-            >
-                {RenderSpecifiedNode(component)}
-            </Form.Item>
-          );
-        })}
+        <BaseForm components={props.components} />
       </Form>
       <Button type='primary' onClick={() => onClick()}>{props.button.text}</Button>
     </>
