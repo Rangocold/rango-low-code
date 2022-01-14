@@ -9,34 +9,30 @@ export enum ComponentTypes {
   number,
   button,
   interationForm,
+  arraySelection,
 }
 
 export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
   [ComponentTypes.select]: {
-    title: '',
     uuid: genUUID(),
     type: ComponentTypes.select,
     options: [],
     single: true,
   },
   [ComponentTypes.input]: {
-    title: '',
     uuid: genUUID(),
     type: ComponentTypes.input,
   },
   [ComponentTypes.textarea]: {
-    title: '',
     uuid: genUUID(),
     type: ComponentTypes.textarea,
   },
   [ComponentTypes.date]: {
-    title: '',
     uuid: genUUID(),
     type: ComponentTypes.date,
     showTime: true,
   },
   [ComponentTypes.number]: {
-    title: '',
     uuid: genUUID(),
     type: ComponentTypes.number,
   },
@@ -45,6 +41,15 @@ export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
     url: '',
     uuid: genUUID(),
     type: ComponentTypes.button,
+  },
+  [ComponentTypes.interationForm]: {
+    uuid: genUUID(),
+    type: ComponentTypes.interationForm,
+    components: [],
+  },
+  [ComponentTypes.arraySelection]: {
+    uuid: genUUID(),
+    type: ComponentTypes.arraySelection,
   },
 };
 
@@ -83,4 +88,12 @@ export const ComponentOptions = [
     label: 'Button',
     disabled: true,
   },
+  {
+    label: 'Integration Form',
+    value: ComponentTypes.interationForm,
+  },
+  {
+    label: 'Array Selection',
+    value: ComponentTypes.arraySelection,
+  }
 ];
