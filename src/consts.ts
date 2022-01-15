@@ -1,6 +1,8 @@
 import { ComponentTypes } from './Toolbar/consts';
 import { ComponentProps } from './types';
 
+export const Width100Percent = { width: '100%' };
+
 export const initialComponentValue: Record<ComponentTypes, ComponentProps> = {
   [ComponentTypes.interationForm]: {
     uuid: '',

@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import {
   GlobalContextStateProps,
   GlobalContextAction,

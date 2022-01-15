@@ -1,5 +1,5 @@
 import Toolbar from './Toolbar';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { ComponentProps } from './types';
 import { ComponentTypes } from './Toolbar/consts';
 import { initialComponentValue } from './consts';
@@ -7,26 +7,44 @@ import { GlobalContext, useGlobalContextReducer } from './Stores';
 import ComponentFormDrawer from './ComponentFormDrawer';
 import { Layout } from 'antd';
 import Preview from './Renders';
+import style from './index.module.css';
+import { GlobalContextActionEnum } from './Stores/types';
+import IntegrationForm from './Renders/IntegrationForm';
 
 function App() {
   const context = useGlobalContextReducer();
-  const [componentList, setComponentList] = useState<ComponentProps[]>([]);
+  useEffect(() => {
+    context.dispatch({
+      type: GlobalContextActionEnum.setRegistedComponentsMap,
+      payload: {
+        componentType: ComponentTypes.interationForm,
+        componentConstructor: IntegrationForm,
+      }
+    })
+  }, []);
   const onAddComponent = useCallback(
     (componentType: ComponentTypes) => {
-      setComponentList([
-        ...componentList,
-        initialComponentValue[componentType],
-      ]);
+      context.dispatch({
+        type: GlobalContextActionEnum.setComponents,
+        payload: [
+          ...context.state.components,
+          initialComponentValue[componentType],
+        ]
+      });
     },
-    [componentList]
+    [context.state.components]
   );
   return (
     <GlobalContext.Provider value={context}>
-      <Toolbar onAddComponent={onAddComponent} componentList={componentList} />
-      <Layout.Content>
-        <Preview />
-      </Layout.Content>
-      <ComponentFormDrawer />
+      <div className={style['application']}>
+        <Toolbar
+          onAddComponent={onAddComponent}
+        />
+        <Layout.Content>
+          <Preview />
+        </Layout.Content>
+        <ComponentFormDrawer />
+      </div>
     </GlobalContext.Provider>
   );
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 declare module '*.scss' {
   const content: Record<string, string>;
   export default content;
@@ -14,6 +15,11 @@ declare module '*.png' {
   const value: any;
   export default value;
 }
+declare module '*.module.css' {
+  const value: any;
+  export default value;
+}
+
 
 /*
  * B is type in BE
