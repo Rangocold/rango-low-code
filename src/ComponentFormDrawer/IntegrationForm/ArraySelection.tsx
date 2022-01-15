@@ -5,19 +5,23 @@ import { ComponentSelectionProps } from './types';
 import { cloneDeep } from 'lodash';
 import { updateArray } from '../../Utils';
 
-export default function ArraySelection(
-  props: ComponentSelectionProps
-) {
-  const onDelete = useCallback((idx: number) => {
-    const newValue = cloneDeep(props.value) ?? [];
-    newValue.splice(idx, 1);
-    props.onChange && props.onChange(newValue);
-  }, [props]);
+export default function ArraySelection(props: ComponentSelectionProps) {
+  const onDelete = useCallback(
+    (idx: number) => {
+      const newValue = cloneDeep(props.value) ?? [];
+      newValue.splice(idx, 1);
+      props.onChange && props.onChange(newValue);
+    },
+    [props]
+  );
 
-  const onChange = useCallback((idx: number, newValue: number | string) => {
-    const res = updateArray(props.value ?? [], idx, newValue);
-    props.onChange && props.onChange(res);
-  }, [props]);
+  const onChange = useCallback(
+    (idx: number, newValue: number | string) => {
+      const res = updateArray(props.value ?? [], idx, newValue);
+      props.onChange && props.onChange(res);
+    },
+    [props]
+  );
 
   const onAdd = useCallback(() => {
     const res = cloneDeep(props.value) ?? [];
@@ -34,9 +38,13 @@ export default function ArraySelection(
             return (
               <Row>
                 <Col span={20}>
-                  <Select value={value} options={options} onChange={(value) => {
-                    onChange(i, value);
-                  }} />
+                  <Select
+                    value={value}
+                    options={options}
+                    onChange={(value) => {
+                      onChange(i, value);
+                    }}
+                  />
                 </Col>
                 <Col span={4}>
                   <DeleteOutlined onClick={() => onDelete(i)} />
@@ -47,7 +55,9 @@ export default function ArraySelection(
         }
         return null;
       })}
-      <Button onClick={() => onAdd()} icon={<PlusOutlined />}>Add</Button>
+      <Button onClick={() => onAdd()} icon={<PlusOutlined />}>
+        Add
+      </Button>
     </>
   );
 }

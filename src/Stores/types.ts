@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentTypes } from '../Toolbar/consts';
 import { ComponentProps } from '../types';
 

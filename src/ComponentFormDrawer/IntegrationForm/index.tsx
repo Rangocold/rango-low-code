@@ -4,7 +4,9 @@ import { ComponentProps, IntegrationFormProps } from '../../types';
 import { v4 as genUUID } from 'uuid';
 import { RenderSpecifiedNode } from '../../Renders/RenderSpecifiedNode';
 
-export function getIntegrationFormDSL(props: IntegrationFormProps): ComponentProps[] {
+export function getIntegrationFormDSL(
+  props: IntegrationFormProps
+): ComponentProps[] {
   return [
     {
       uuid: genUUID(),
@@ -19,9 +21,5 @@ export function getIntegrationFormDSL(props: IntegrationFormProps): ComponentPro
 }
 
 export default function IntegrationForm(props: IntegrationFormProps) {
-  return (
-    <>
-      {props.components.map(RenderSpecifiedNode)}
-    </>
-  )
+  return <>{props.components.map(RenderSpecifiedNode)}</>;
 }

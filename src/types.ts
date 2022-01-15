@@ -5,7 +5,9 @@ export interface FieldPublicProps {
   uuid: string;
 }
 
-export interface SelectFieldProps extends FieldPublicProps, BaseInputPublicProps {
+export interface SelectFieldProps
+  extends FieldPublicProps,
+    BaseInputPublicProps {
   type: ComponentTypes.select;
   options: { label: string; value: string }[];
   single: boolean;
@@ -42,7 +44,7 @@ export interface IntegrationFormButtonProps
 }
 
 // no uuid, because not for user
-export interface BaseFormProps{
+export interface BaseFormProps {
   components: ComponentProps[];
 }
 

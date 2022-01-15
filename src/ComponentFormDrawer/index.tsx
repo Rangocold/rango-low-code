@@ -1,14 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
-import { Drawer, Row, Col, Button, Form } from 'antd';
+import { Form, Layout } from 'antd';
 import { ConfigDrawerProps } from './types';
 import { ComponentProps } from '../types';
 import { useGlobalContext } from '../Stores';
 import { useComponents } from '../Hooks/useComponents';
 
-export default function ConfigDrawer({
-  visible,
-  onHideDrawer,
-}: ConfigDrawerProps) {
+export default function ConfigDrawer() {
   const { state, dispatch } = useGlobalContext();
   const [form] = Form.useForm<ComponentProps>();
   const { findComponentByUuid, updateComponentByUuid } = useComponents();
@@ -33,20 +30,10 @@ export default function ConfigDrawer({
     initConfigForm();
   }, [initConfigForm, state.editingComponentUuid]);
   return (
-    <Drawer
-      visible={visible}
-      onClose={onHideDrawer}
-      footer={
-        <Row>
-          <Col>
-            <Button onClick={() => onHideDrawer()}>Cancel</Button>
-          </Col>
-        </Row>
-      }
-    >
+    <Layout.Sider>
       <Form form={form} onValuesChange={onValuesChange}>
         {/* todo render by fields */}
       </Form>
-    </Drawer>
+    </Layout.Sider>
   );
 }

@@ -95,5 +95,5 @@ export const ComponentOptions = [
   {
     label: 'Array Selection',
     value: ComponentTypes.arraySelection,
-  }
+  },
 ];
