@@ -5,7 +5,9 @@ import { useGlobalContext } from '../Stores';
 import { useComponents } from '../Hooks/useComponents';
 import { useRenderPreviewNode } from '../Display/Preview/useRenderPreviewNode';
 import { useRenderConfig } from './useRenderConfig';
+import TypeInput from './Public/TypeInput';
 import style from './style.module.css';
+import { GlobalContextActionEnum } from '../Stores/types';
 
 export default function ConfigDrawer() {
   const { state, dispatch } = useGlobalContext();
@@ -28,10 +30,15 @@ export default function ConfigDrawer() {
   }, [state.editingComponentUuid, form]);
 
   const onValuesChange = useCallback(
-    (_: unknown, allValues: ComponentProps) => {
-      updateComponentByUuid(state.editingComponentUuid, allValues, state.components);
+    () => {
+      const formData = form.getFieldsValue(true);
+      updateComponentByUuid(state.editingComponentUuid, formData, state.components);
+      dispatch({
+        type: GlobalContextActionEnum.setComponents,
+        payload: state.components,
+      });
     },
-    [state.editingComponentUuid, state.components]
+    [state.editingComponentUuid, state.components, form, dispatch]
   );
 
   useEffect(() => {
@@ -40,6 +47,7 @@ export default function ConfigDrawer() {
   return (
     <Layout.Sider className={style['config_form__container']} width={400} theme='light'>
       <Form form={form} onValuesChange={onValuesChange} layout={'vertical'}>
+        <TypeInput />
         {renderConfig(editingComponent?.type)}
       </Form>
     </Layout.Sider>

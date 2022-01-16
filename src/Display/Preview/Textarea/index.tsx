@@ -21,8 +21,20 @@ export default function Textarea(props: TextareaProps) {
     }
     return res;
   }, [props]);
+  const labelCol = useMemo(() => {
+    if (!isNil(props.labelCol)) {
+      return {
+        span: props.labelCol,
+      };
+    }
+  }, [props.labelCol]);
   return (
-    <Form.Item name={props.uuid} rules={rules}>
+    <Form.Item
+      name={props.uuid}
+      rules={rules}
+      labelCol={labelCol}
+      label={props.label}
+    >
       <Input.TextArea disabled={props.disabled} />
     </Form.Item>
   );

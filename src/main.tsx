@@ -11,19 +11,21 @@ import { Layout } from 'antd';
 import Preview from './Display/Preview';
 import style from './index.module.css';
 import { GlobalContextActionEnum } from './Stores/types';
-import IntegrationForm from './Display/Preview/IntegrationForm';
 import 'antd/dist/antd.css';
+import { PreviewComponentList } from './Display/Preview/useRegisterPreviewComponents';
 
 function App() {
   const context = useGlobalContextReducer();
   useEffect(() => {
-    context.dispatch({
-      type: GlobalContextActionEnum.setRegistedComponentsMap,
-      payload: {
-        componentType: ComponentTypes.interationForm,
-        componentConstructor: IntegrationForm,
-      }
-    })
+    for (const item of PreviewComponentList) {
+      context.dispatch({
+        type: GlobalContextActionEnum.setRegistedComponentsMap,
+        payload: {
+          componentType: item.componentType,
+          componentConstructor: item.componentConstructor,
+        },
+      });
+    }
   }, []);
   const onAddComponent = useCallback(
     (componentType: ComponentTypes) => {
@@ -48,7 +50,11 @@ function App() {
           onAddComponent={onAddComponent}
         />
         <Layout.Content>
-          <Preview />
+          <GlobalContext.Consumer>
+            {(context) => {
+              return <Preview context={context} />
+            }}
+          </GlobalContext.Consumer>
         </Layout.Content>
         <ComponentFormDrawer />
       </Layout>

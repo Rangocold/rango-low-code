@@ -1,11 +1,12 @@
 import { ComponentProps } from '../types';
 import { useCallback } from 'react';
 import { useGlobalContext } from '../Stores';
+import { GlobalContextActionEnum } from '../Stores/types';
 
 type findComponentByUuidProps = (uuid: string, components?: ComponentProps[]) => (ComponentProps | undefined);
 
 export function useComponents() {
-  const { state } = useGlobalContext();
+  const { state, dispatch } = useGlobalContext();
   const findComponentByUuid: findComponentByUuidProps = useCallback(
     (uuid: string, components?: ComponentProps[]) => {
       if (!Array.isArray(components)) {
@@ -39,6 +40,7 @@ export function useComponents() {
         const current = components[i];
         if (current.uuid === uuid) {
           components[i] = newValue;
+
           return true;
         }
 

@@ -19,11 +19,19 @@ export default function IntegrationForm(props: IntegrationFormProps) {
   }, [props]);
   return (
     <div className={style['integration_form__container']}>
-      <Form form={form} className={style['integration_form__form']}>
+      <Form
+        form={form}
+        className={style['integration_form__form']}
+        layout='vertical'
+      >
         <BaseForm components={props.components} />
       </Form>
-      <Button type='primary' onClick={() => onClick()} className={style['integration_form__btn']}>
-        {props.button.text}
+      <Button
+        type='primary'
+        onClick={() => onClick()}
+        className={style['integration_form__btn']}
+      >
+        {props?.button?.text}
       </Button>
     </div>
   );
