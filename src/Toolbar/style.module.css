@@ -1,0 +1,8 @@
+.left_side_bar {
+  justify-content: center;
+  align-items: center;
+}
+
+.left_side_bar .ant-space-item {
+  width: 100%;
+}

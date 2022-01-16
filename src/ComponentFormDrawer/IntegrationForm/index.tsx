@@ -1,9 +1,12 @@
 import React from 'react';
+import { Input, Form } from 'antd';
 import { ComponentTypes } from '../../Toolbar/consts';
 import { ComponentProps, IntegrationFormProps } from '../../types';
 import { v4 as genUUID } from 'uuid';
-import { RenderSpecifiedNode } from '../../Renders/RenderSpecifiedNode';
+import ComponentSelection from './ComponentSelection';
+import UUIDInput from '../Public/UUIDInput';
 
+// 暂时不用，先做固定渲染
 export function getIntegrationFormDSL(
   props: IntegrationFormProps
 ): ComponentProps[] {
@@ -15,11 +18,22 @@ export function getIntegrationFormDSL(
     },
     {
       uuid: genUUID(),
-      type: ComponentTypes.arraySelection,
+      type: ComponentTypes.componentSelection,
     },
   ];
 }
 
-export default function IntegrationForm(props: IntegrationFormProps) {
-  return <>{props.components.map(RenderSpecifiedNode)}</>;
+export default function IntegrationForm() {
+  return (
+    <>
+      <UUIDInput />
+      {/* TODO 实现api之后做成可选 */}
+      <Form.Item name='submitUrl' rules={[{ required: true }]} label='Submit Url'>
+        <Input />
+      </Form.Item>
+      <Form.Item name='components' label='Components'>
+        <ComponentSelection />
+      </Form.Item>
+    </>
+  );
 }

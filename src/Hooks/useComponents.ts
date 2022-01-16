@@ -2,9 +2,11 @@ import { ComponentProps } from '../types';
 import { useCallback } from 'react';
 import { useGlobalContext } from '../Stores';
 
+type findComponentByUuidProps = (uuid: string, components?: ComponentProps[]) => (ComponentProps | undefined);
+
 export function useComponents() {
   const { state } = useGlobalContext();
-  const findComponentByUuid = useCallback(
+  const findComponentByUuid: findComponentByUuidProps = useCallback(
     (uuid: string, components?: ComponentProps[]) => {
       if (!Array.isArray(components)) {
         return undefined;

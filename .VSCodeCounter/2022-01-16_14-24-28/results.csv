@@ -1,0 +1,49 @@
+"filename", "language", "XML", "JavaScript", "TypeScript React", "CSS", "TypeScript", "comment", "blank", "total"
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/Button/index.tsx", "TypeScript React", 0, 0, 13, 0, 0, 0, 2, 15
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/Input/index.tsx", "TypeScript React", 0, 0, 34, 0, 0, 0, 1, 35
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/IntegrationForm/ArraySelection.tsx", "TypeScript React", 0, 0, 60, 0, 0, 0, 4, 64
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/IntegrationForm/index.tsx", "TypeScript React", 0, 0, 36, 0, 0, 1, 3, 40
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/IntegrationForm/types.ts", "TypeScript", 0, 0, 0, 0, 9, 0, 1, 10
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/Select/OptionsConfig.tsx", "TypeScript React", 0, 0, 15, 0, 0, 0, 2, 17
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/Select/index.tsx", "TypeScript React", 0, 0, 34, 0, 0, 0, 1, 35
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/Select/types.ts", "TypeScript", 0, 0, 0, 0, 8, 0, 1, 9
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/Textarea/index.tsx", "TypeScript React", 0, 0, 34, 0, 0, 0, 1, 35
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/UUIDInput.tsx", "TypeScript React", 0, 0, 9, 0, 0, 0, 2, 11
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/consts.ts", "TypeScript", 0, 0, 0, 0, 1, 0, 1, 2
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/index.tsx", "TypeScript React", 0, 0, 40, 0, 0, 0, 4, 44
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/types.ts", "TypeScript", 0, 0, 0, 0, 5, 0, 2, 7
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComponentFormDrawer/useRenderConfig.tsx", "TypeScript React", 0, 0, 15, 0, 0, 0, 1, 16
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComposeOperator/Components/IntegrationForm.tsx", "TypeScript React", 0, 0, 18, 0, 0, 0, 3, 21
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComposeOperator/consts.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComposeOperator/index.tsx", "TypeScript React", 0, 0, 7, 0, 0, 12, 2, 21
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/ComposeOperator/types.ts", "TypeScript", 0, 0, 0, 0, 1, 0, 1, 2
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/BaseForm/index.tsx", "TypeScript React", 0, 0, 18, 0, 0, 0, 2, 20
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/Button/index.tsx", "TypeScript React", 0, 0, 9, 0, 0, 2, 2, 13
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/Container/index.tsx", "TypeScript React", 0, 0, 14, 0, 0, 0, 2, 16
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/Container/types.ts", "TypeScript", 0, 0, 0, 0, 5, 0, 2, 7
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/Input/index.tsx", "TypeScript React", 0, 0, 6, 0, 0, 0, 2, 8
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/IntegrationForm/index.tsx", "TypeScript React", 0, 0, 29, 0, 0, 0, 2, 31
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/IntegrationForm/style.module.css", "CSS", 0, 0, 0, 15, 0, 0, 2, 17
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/Textarea/index.tsx", "TypeScript React", 0, 0, 6, 0, 0, 0, 2, 8
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/index.tsx", "TypeScript React", 0, 0, 20, 0, 0, 0, 3, 23
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/style.module.css", "CSS", 0, 0, 0, 3, 0, 0, 0, 3
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Display/Preview/useRenderPreviewNode.tsx", "TypeScript React", 0, 0, 26, 0, 0, 0, 3, 29
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/DragUtils/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Expressions/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Hooks/useAddComponent.ts", "TypeScript", 0, 0, 0, 0, 1, 0, 1, 2
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Hooks/useComponents.ts", "TypeScript", 0, 0, 0, 0, 53, 0, 10, 63
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Stores/index.ts", "TypeScript", 0, 0, 0, 0, 48, 0, 6, 54
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Stores/types.ts", "TypeScript", 0, 0, 0, 0, 37, 0, 8, 45
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Toolbar/consts.ts", "TypeScript", 0, 0, 0, 0, 58, 38, 4, 100
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Toolbar/index.tsx", "TypeScript React", 0, 0, 29, 0, 0, 0, 2, 31
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Toolbar/style.module.css", "CSS", 0, 0, 0, 7, 0, 0, 1, 8
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Toolbar/types.ts", "TypeScript", 0, 0, 0, 0, 5, 0, 2, 7
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/Utils/index.ts", "TypeScript", 0, 0, 0, 0, 8, 0, 1, 9
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/consts.ts", "TypeScript", 0, 0, 0, 0, 56, 0, 3, 59
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/index.module.css", "CSS", 0, 0, 0, 4, 0, 0, 0, 4
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/logo.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/main.tsx", "TypeScript React", 0, 0, 62, 0, 0, 0, 4, 66
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/reportWebVitals.js", "JavaScript", 0, 12, 0, 0, 0, 0, 2, 14
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/setupTests.js", "JavaScript", 0, 1, 0, 0, 0, 4, 1, 6
+"/Users/chenzhitao/Desktop/rango/rango-low-code/rango-low-code/src/types.ts", "TypeScript", 0, 0, 0, 0, 58, 1, 12, 71
+"Total", "-", 1, 13, 534, 29, 353, 58, 114, 1102

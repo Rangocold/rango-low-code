@@ -1,9 +1,6 @@
+import { ComponentProps } from "../../types";
+
 export interface ComponentSelectionProps {
-  options: {
-    value: number | string;
-    label: string;
-  }[];
-  value?: (number | string)[];
-  defaultValue: number | string;
-  onChange?: (values: (number | string)[]) => void;
+  value?: ComponentProps[];
+  onChange?: (values: ComponentProps[]) => void;
 }

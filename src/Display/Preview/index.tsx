@@ -1,0 +1,26 @@
+import React, { useEffect } from 'react';
+import { useGlobalContext, GlobalContext } from '../../Stores';
+import { useRenderPreviewNode } from './useRenderPreviewNode';
+import style from './style.module.css';
+
+export default function Renders() {
+  const { renderPreviewNode } = useRenderPreviewNode();
+  const context = useGlobalContext();
+  useEffect(() => {
+    console.log('preview:',  context?.state?.components);
+  }, [context.state.components]);
+  return (
+    <GlobalContext.Consumer>
+      {({ state }) => {
+        console.log('context state change: ', state);
+        return (
+          <div className={style['preview__container']}>
+            {state.components.map((component) =>
+              renderPreviewNode(component)
+            )}
+          </div>
+        );
+      }}
+    </GlobalContext.Consumer>
+  );
+}

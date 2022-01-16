@@ -9,7 +9,7 @@ export enum ComponentTypes {
   number,
   button,
   interationForm,
-  arraySelection,
+  componentSelection,
 }
 
 export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
@@ -47,9 +47,9 @@ export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
     type: ComponentTypes.interationForm,
     components: [],
   },
-  [ComponentTypes.arraySelection]: {
+  [ComponentTypes.componentSelection]: {
     uuid: genUUID(),
-    type: ComponentTypes.arraySelection,
+    type: ComponentTypes.componentSelection,
   },
 };
 
@@ -61,39 +61,47 @@ export const ComponentOptions = [
   {
     value: ComponentTypes.select,
     label: 'Select',
-    disabled: true,
+    //disabled: true,
   },
   {
     value: ComponentTypes.input,
     label: 'Input',
-    disabled: true,
+    //disabled: true,
   },
   {
     value: ComponentTypes.textarea,
     label: 'Textarea',
-    disabled: true,
+    //disabled: true,
   },
   {
     value: ComponentTypes.date,
     label: 'Date',
-    disabled: true,
+    //disabled: true,
   },
   {
     value: ComponentTypes.number,
     label: 'Number',
-    disabled: true,
+    //disabled: true,
   },
   {
     value: ComponentTypes.button,
     label: 'Button',
-    disabled: true,
-  },
-  {
-    label: 'Integration Form',
-    value: ComponentTypes.interationForm,
+    //disabled: true,
   },
   {
     label: 'Array Selection',
-    value: ComponentTypes.arraySelection,
+    value: ComponentTypes.componentSelection,
   },
 ];
+
+export const BasicInputTypes = [
+  ComponentTypes.select,
+  ComponentTypes.input,
+  ComponentTypes.textarea,
+  ComponentTypes.date,
+  ComponentTypes.number,
+];
+
+export const BasicInputOptions = ComponentOptions.filter((option) =>
+  BasicInputTypes.includes(option.value)
+);

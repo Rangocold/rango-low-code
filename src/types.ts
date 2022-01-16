@@ -15,14 +15,18 @@ export interface SelectFieldProps
 
 export interface InputProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.input;
+  max?: number;
 }
 
 export interface TextareaProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.textarea;
+  max?: number;
 }
 
 export interface NumberProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.number;
+  max?: number;
+  min?: number;
 }
 
 export interface DateProps extends FieldPublicProps, BaseInputPublicProps {
@@ -33,14 +37,6 @@ export interface DateProps extends FieldPublicProps, BaseInputPublicProps {
 export interface ButtonProps extends FieldPublicProps {
   type: ComponentTypes.button;
   text: string;
-  url: string;
-}
-
-export interface IntegrationFormButtonProps
-  extends Omit<FieldPublicProps, 'title'> {
-  type: ComponentTypes.button;
-  text: string;
-  url: string;
 }
 
 // no uuid, because not for user
@@ -51,7 +47,7 @@ export interface BaseFormProps {
 export interface IntegrationFormProps extends FieldPublicProps {
   type: ComponentTypes.interationForm;
   submitUrl: string;
-  button: IntegrationFormButtonProps;
+  button: ButtonProps;
   components: BaseFormProps['components'];
 }
 
@@ -68,7 +64,7 @@ export type ComponentProps =
 export interface BaseInputPublicProps {
   label?: string;
   required?: boolean;
-  labelCol?: FormProps['labelCol'];
+  labelCol?: number;
   initialValue?: string;
   disabled?: boolean;
 }
