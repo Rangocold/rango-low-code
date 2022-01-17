@@ -10,6 +10,7 @@ export enum ComponentTypes {
   button,
   interationForm,
   componentSelection,
+  integrationTable,
 }
 
 export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
@@ -92,6 +93,10 @@ export const ComponentOptions = [
     label: 'Array Selection',
     value: ComponentTypes.componentSelection,
   },
+  {
+    label: 'Table',
+    value: ComponentTypes.integrationTable,
+  },
 ];
 
 export const BasicInputTypes = [
@@ -104,4 +109,13 @@ export const BasicInputTypes = [
 
 export const BasicInputOptions = ComponentOptions.filter((option) =>
   BasicInputTypes.includes(option.value)
+);
+
+export const ToolbarOptionsTypes = [
+  ComponentTypes.interationForm,
+  ComponentTypes.integrationTable,
+];
+
+export const ToolbarOptions = ComponentOptions.filter((option) =>
+  ToolbarOptionsTypes.includes(option.value)
 );

@@ -51,6 +51,27 @@ export interface IntegrationFormProps extends FieldPublicProps {
   components: BaseFormProps['components'];
 }
 
+export interface IntegrationTableProps extends FieldPublicProps {
+  url: string;
+  searchBar: {
+    components: ComponentProps[];
+  };
+  filterBar: {
+    items: { label: string; value: string; }[];
+    defaultValue?: string;
+  };
+  columns: {
+    fieldName: string;
+    fieldKey: string;
+    convertRuleMap: Map<string, string>;
+    component?: ComponentProps;
+  }[];
+  pagination: {
+    defaultPageSize?: number;
+    defaultPageNumber?: number;
+  };
+};
+
 export type ComponentProps =
   | IntegrationFormProps
   | SelectFieldProps
@@ -59,7 +80,7 @@ export type ComponentProps =
   | NumberProps
   | DateProps
   | ButtonProps
-  | ArraySelectionProps;
+  | IntegrationTableProps;
 
 export interface BaseInputPublicProps {
   label?: string;
