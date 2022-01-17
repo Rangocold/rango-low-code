@@ -16,6 +16,7 @@ export default function ConfigDrawer() {
   const { findComponentByUuid, updateComponentByUuid } = useComponents();
   const { renderConfig } = useRenderConfig();
   const initConfigForm = useCallback(() => {
+    form.resetFields();
     const component = findComponentByUuid(
       state.editingComponentUuid,
       state.components
@@ -24,7 +25,6 @@ export default function ConfigDrawer() {
       form.setFieldsValue({ ...component });
       setEditingComponent(component);
     } else {
-      form.setFieldsValue({});
       setEditingComponent(undefined);
     }
   }, [state.editingComponentUuid, form]);

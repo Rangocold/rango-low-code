@@ -7,10 +7,7 @@ export default function InputConfig() {
   return (
     <>
       <PublicPropsInput />
-      <Form.Item name='label'>
-        <Input />
-      </Form.Item>
-      <Form.Item name='initialValue'>
+      <Form.Item name='initialValue' label='Initial Value'>
         <Input />
       </Form.Item>
       <MaxInput />
