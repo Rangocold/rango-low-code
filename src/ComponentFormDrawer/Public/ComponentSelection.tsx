@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { Select, Col, Row, Button } from 'antd';
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import { ComponentSelectionProps } from './types';
+import { ComponentSelectionProps } from '../IntegrationForm/types';
 import { cloneDeep } from 'lodash';
 import { updateArray } from '../../Utils';
 import style from './style.module.css';
@@ -11,7 +11,7 @@ import { ComponentProps } from '../../types';
 
 export default function ComponentSelection(props: ComponentSelectionProps) {
   const options = useMemo(() => {
-    return BasicInputOptions;
+    return Array.isArray(props?.options) ? props.options : BasicInputOptions;
   }, []);
   const onDelete = useCallback(
     (idx: number) => {

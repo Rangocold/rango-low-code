@@ -39,7 +39,6 @@ export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
   },
   [ComponentTypes.button]: {
     text: '',
-    url: '',
     uuid: genUUID(),
     type: ComponentTypes.button,
   },

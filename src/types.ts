@@ -51,25 +51,20 @@ export interface IntegrationFormProps extends FieldPublicProps {
   components: BaseFormProps['components'];
 }
 
+export interface IntegrationTableColumnProps {
+  fieldName: string;
+  fieldKey: string;
+  convertRuleMap: Map<string, string>;
+  component?: ComponentProps;
+}
+
 export interface IntegrationTableProps extends FieldPublicProps {
+  type: ComponentTypes.integrationTable;
   url: string;
-  searchBar: {
+  filters: {
     components: ComponentProps[];
   };
-  filterBar: {
-    items: { label: string; value: string; }[];
-    defaultValue?: string;
-  };
-  columns: {
-    fieldName: string;
-    fieldKey: string;
-    convertRuleMap: Map<string, string>;
-    component?: ComponentProps;
-  }[];
-  pagination: {
-    defaultPageSize?: number;
-    defaultPageNumber?: number;
-  };
+  columns: IntegrationTableColumnProps[];
 };
 
 export type ComponentProps =
