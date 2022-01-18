@@ -5,7 +5,7 @@ import UUIDInput from '../Public/UUIDInput';
 import { IntegrationTableColumnProps } from '../../types';
 import { ColumnConfigProps } from './types';
 
-function ColumnConfig(props: ColumnConfigProps) {
+function ColumnConfig({ value, onChange }: ColumnConfigProps) {
   return (
     <div></div>
   );
