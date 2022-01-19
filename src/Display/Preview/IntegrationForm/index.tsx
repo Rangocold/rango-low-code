@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Form, Button } from 'antd';
-import { IntegrationFormProps } from '../../types';
+import { IntegrationFormProps } from '../../../types';
 import axios from 'axios';
 import BaseForm from '../BaseForm';
 import style from './style.module.css';

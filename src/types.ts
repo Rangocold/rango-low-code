@@ -56,6 +56,7 @@ export interface IntegrationTableColumnProps {
   fieldKey: string;
   convertRuleMap: Map<string, string>;
   component?: ComponentProps;
+  sorter?: boolean;
 }
 
 export interface IntegrationTableProps extends FieldPublicProps {
