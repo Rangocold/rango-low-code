@@ -3,6 +3,7 @@ import { InputNumber, Form } from 'antd';
 import { NumberProps } from '../../../types';
 import { isNil } from 'lodash';
 import { Rule } from 'rc-field-form/lib/interface';
+import { Width100Percent } from '../../../consts';
 
 export default function Number(props: NumberProps) {
   const rules = useMemo(() => {
@@ -36,7 +37,7 @@ export default function Number(props: NumberProps) {
       label={props.label}
       labelCol={labelCol}
     >
-      <InputNumber />
+      <InputNumber style={Width100Percent} />
     </Form.Item>
   );
 }

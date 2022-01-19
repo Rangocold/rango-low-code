@@ -26,7 +26,7 @@ export default function Select(props: SelectFieldProps) {
       required={props.required}
     >
       <AntSelect
-        options={props.options}
+        options={props.options ?? []}
         disabled={props.disabled}
         mode={mode}
       />

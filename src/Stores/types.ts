@@ -7,6 +7,7 @@ export interface GlobalContextStateProps {
   editingComponentUuid: string;
   registedComponentsMap: Map<ComponentTypes, any>;
 }
+
 export type GlobalContextProps = {
   state: GlobalContextStateProps;
   dispatch: React.Dispatch<GlobalContextAction>;

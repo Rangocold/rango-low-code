@@ -7,7 +7,7 @@ export default function Textarea() {
   return (
     <>
       <PublicPropsInput />
-      <Form.Item name='initialValue'>
+      <Form.Item name='initialValue' label='Initial Value'>
         <Input />
       </Form.Item>
       <MaxInput />

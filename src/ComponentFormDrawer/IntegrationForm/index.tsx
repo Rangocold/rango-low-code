@@ -3,7 +3,7 @@ import { Input, Form } from 'antd';
 import { ComponentTypes } from '../../Toolbar/consts';
 import { ComponentProps, IntegrationFormProps } from '../../types';
 import { v4 as genUUID } from 'uuid';
-import ComponentSelection from './ComponentSelection';
+import ComponentSelection from '../Public/ComponentSelection';
 import UUIDInput from '../Public/UUIDInput';
 
 // 暂时不用，先做固定渲染

@@ -51,6 +51,22 @@ export interface IntegrationFormProps extends FieldPublicProps {
   components: BaseFormProps['components'];
 }
 
+export interface IntegrationTableColumnProps {
+  fieldName: string;
+  fieldKey: string;
+  convertRuleMap: Map<string, string>;
+  component?: ComponentProps;
+}
+
+export interface IntegrationTableProps extends FieldPublicProps {
+  type: ComponentTypes.integrationTable;
+  url: string;
+  filters: {
+    components: ComponentProps[];
+  };
+  columns: IntegrationTableColumnProps[];
+};
+
 export type ComponentProps =
   | IntegrationFormProps
   | SelectFieldProps
@@ -59,7 +75,7 @@ export type ComponentProps =
   | NumberProps
   | DateProps
   | ButtonProps
-  | ArraySelectionProps;
+  | IntegrationTableProps;
 
 export interface BaseInputPublicProps {
   label?: string;

@@ -5,6 +5,7 @@ import IntegrationForm from './IntegrationForm';
 import Select from './Select';
 import Textarea from './Textarea';
 import Number from './Number';
+import IntegrationTable from './IntegrationTable';
 
 export function useRenderConfig() {
   const renderConfig = useCallback((componentType: ComponentTypes) => {
@@ -23,6 +24,9 @@ export function useRenderConfig() {
       }
       case ComponentTypes.number: {
         return React.createElement(Number);
+      }
+      case ComponentTypes.integrationTable: {
+        return React.createElement(IntegrationTable);
       }
     }
   }, []);
