@@ -23,6 +23,16 @@ export default function IntegrationForm(props: IntegrationFormProps) {
         form={form}
         className={style['integration_form__form']}
         layout='vertical'
+        validateMessages={{
+          required: 'Required',
+          string: {
+            max: 'Max length is ${max}',
+          },
+          number: {
+            max: 'Max value is ${max}',
+            min: 'Min value is ${min}',
+          }
+        }}
       >
         <BaseForm components={props.components} />
       </Form>

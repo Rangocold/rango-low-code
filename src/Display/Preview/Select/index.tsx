@@ -5,9 +5,7 @@ import { isNil } from 'lodash';
 
 export default function Select(props: SelectFieldProps) {
   const mode: SelectProps['mode'] = useMemo(() => {
-    if (props.single) {
-      return 'tags';
-    } else {
+    if (props.single === false) {
       return 'multiple';
     }
   }, [props.single]);
