@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { useGlobalContext } from '../../Stores';
 import { GlobalContextActionEnum } from '../../Stores/types';
@@ -7,6 +8,8 @@ import Input from './Input';
 import Number from './Number';
 import Textarea from './Textarea';
 import Select from './Select';
+import Date from './Date';
+
 export const PreviewComponentList = [
   {
     componentType: ComponentTypes.interationForm,
@@ -28,6 +31,10 @@ export const PreviewComponentList = [
     componentType: ComponentTypes.number,
     componentConstructor: Number,
   },
+  {
+    componentType: ComponentTypes.date,
+    componentConstructor: Date,
+  }
 ];
 
 export function useRegisterPreviewComponents() {

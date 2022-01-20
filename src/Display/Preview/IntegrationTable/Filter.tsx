@@ -10,7 +10,7 @@ export default function IntegrationTableFilters(
   return (
     <Card>
       <Form form={form}>
-        <BaseForm components={props.components} />
+        <BaseForm components={props.components} itemPerRow={3} />
       </Form>
     </Card>
   );

@@ -3,6 +3,9 @@ import { ComponentProps } from './types';
 import { v4 as genUUID } from 'uuid';
 
 export const Width100Percent = { width: '100%' };
+export const DefaultDateFormat = 'YYYY-MM-DD';
+export const DefaultPageNumber = 1;
+export const DefaultPageSize = 10;
 
 export const getInitialComponentValue: () => Record<
   ComponentTypes,

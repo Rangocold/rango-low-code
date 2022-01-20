@@ -9,6 +9,7 @@
   "dependencies": {
     "antd": "^4.18.3",
     "axios": "^0.24.0",
+    "dayjs": "^1.10.7",
     "lodash": "^4.17.21",
     "pre-commit": "^1.2.2",
     "react": "^17.0.2",

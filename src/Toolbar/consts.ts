@@ -1,5 +1,6 @@
 import { ComponentProps } from '../types';
 import { v4 as genUUID } from 'uuid';
+import { DefaultDateFormat } from '../consts';
 
 export enum ComponentTypes {
   select = 1,
@@ -31,7 +32,7 @@ export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
   [ComponentTypes.date]: {
     uuid: genUUID(),
     type: ComponentTypes.date,
-    showTime: true,
+    format: DefaultDateFormat,
   },
   [ComponentTypes.number]: {
     uuid: genUUID(),

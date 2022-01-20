@@ -1,5 +1,6 @@
 import { ComponentTypes } from './Toolbar/consts';
 import type { FormProps } from 'antd';
+import { HTMLInputTypeAttribute } from 'react';
 
 export interface FieldPublicProps {
   uuid: string;
@@ -11,26 +12,32 @@ export interface SelectFieldProps
   type: ComponentTypes.select;
   options: { label: string; value: string }[];
   single: boolean;
+  hint?: string;
 }
 
 export interface InputProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.input;
   max?: number;
+  hint?: string;
 }
 
 export interface TextareaProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.textarea;
   max?: number;
+  hint?: string;
 }
 
 export interface NumberProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.number;
   max?: number;
   min?: number;
+  hint?: string;
 }
 
 export interface DateProps extends FieldPublicProps, BaseInputPublicProps {
   type: ComponentTypes.date;
+  format: string;
+  hint?: string;
   showTime?: boolean;
 }
 
@@ -42,6 +49,7 @@ export interface ButtonProps extends FieldPublicProps {
 // no uuid, because not for user
 export interface BaseFormProps {
   components: ComponentProps[];
+  itemPerRow?: number;
 }
 
 export interface IntegrationFormProps extends FieldPublicProps {

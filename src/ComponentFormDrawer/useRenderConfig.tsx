@@ -5,6 +5,7 @@ import IntegrationForm from './IntegrationForm';
 import Select from './Select';
 import Textarea from './Textarea';
 import Number from './Number';
+import Date from './Date';
 import IntegrationTable from './IntegrationTable';
 
 export function useRenderConfig() {
@@ -27,6 +28,9 @@ export function useRenderConfig() {
       }
       case ComponentTypes.integrationTable: {
         return React.createElement(IntegrationTable);
+      }
+      case ComponentTypes.date: {
+        return React.createElement(Date);
       }
     }
   }, []);
