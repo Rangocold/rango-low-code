@@ -5,6 +5,7 @@ import DatePicker from '../../../BaseComponents/DatePicker';
 import { isNil } from 'lodash';
 import { DefaultDateFormat } from '../../../consts';
 import { Dayjs } from 'dayjs';
+import { wrapLabelWithHint } from '../utils';
 
 export default function Date(props: DateProps) {
   const labelCol = useMemo(() => {
@@ -22,7 +23,7 @@ export default function Date(props: DateProps) {
           required: props.required,
         },
       ]}
-      label={props.label}
+      label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
       getValueProps={(value: string) => {
         return { value: new Dayjs(value) };

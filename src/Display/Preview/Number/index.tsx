@@ -4,6 +4,7 @@ import { NumberProps } from '../../../types';
 import { isNil } from 'lodash';
 import { Rule } from 'rc-field-form/lib/interface';
 import { Width100Percent } from '../../../consts';
+import { wrapLabelWithHint } from '../utils';
 
 export default function Number(props: NumberProps) {
   const rules = useMemo(() => {
@@ -34,7 +35,7 @@ export default function Number(props: NumberProps) {
     <Form.Item
       name={props.uuid}
       rules={rules}
-      label={props.label}
+      label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
     >
       <InputNumber style={Width100Percent} />

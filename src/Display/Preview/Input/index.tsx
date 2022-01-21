@@ -4,6 +4,7 @@ import { InputProps } from '../../../types';
 import { isNil } from 'lodash';
 import { Rule } from 'rc-field-form/lib/interface';
 import style from './style.module.css';
+import { wrapLabelWithHint } from '../utils';
 
 export default function Input(props: InputProps) {
   const rules = useMemo(() => {
@@ -33,7 +34,7 @@ export default function Input(props: InputProps) {
     <Form.Item
       name={props.uuid}
       rules={rules}
-      label={props.label}
+      label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
     >
       <AntInput disabled={props.disabled} className={style['preview__input']} />

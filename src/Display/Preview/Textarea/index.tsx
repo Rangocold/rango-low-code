@@ -3,6 +3,7 @@ import { isNil } from 'lodash';
 import { Input, Form } from 'antd';
 import { TextareaProps } from '../../../types';
 import { Rule } from 'rc-field-form/lib/interface';
+import { wrapLabelWithHint } from '../utils';
 
 export default function Textarea(props: TextareaProps) {
   const rules = useMemo(() => {
@@ -33,7 +34,7 @@ export default function Textarea(props: TextareaProps) {
       name={props.uuid}
       rules={rules}
       labelCol={labelCol}
-      label={props.label}
+      label={wrapLabelWithHint(props.label, props.hint)}
     >
       <Input.TextArea disabled={props.disabled} />
     </Form.Item>

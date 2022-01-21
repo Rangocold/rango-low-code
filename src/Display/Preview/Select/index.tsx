@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import { Select as AntSelect, Form, SelectProps } from 'antd';
 import { SelectFieldProps } from '../../../types';
-import { isNil } from 'lodash';
+import { isNil, wrap } from 'lodash';
+import { wrapLabelWithHint } from '../utils';
 
 export default function Select(props: SelectFieldProps) {
   const mode: SelectProps['mode'] = useMemo(() => {
@@ -19,7 +20,7 @@ export default function Select(props: SelectFieldProps) {
   return (
     <Form.Item
       name={props.uuid}
-      label={props.label}
+      label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
       required={props.required}
     >
