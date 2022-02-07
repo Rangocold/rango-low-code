@@ -1,3 +1,4 @@
+import { ComponentConfigs } from './ComponentFormDrawer/consts';
 import { ComponentTypes } from './Toolbar/consts';
 import { ComponentProps } from './types';
 import { v4 as genUUID } from 'uuid';
@@ -18,9 +19,19 @@ export const getInitialComponentValue: () => Record<
     components: [],
     type: ComponentTypes.interationForm,
     button: {
+      uuid: genUUID(),
       type: ComponentTypes.button,
       text: 'Submit',
     },
+  },
+  [ComponentTypes.integrationTable]: {
+    uuid: genUUID(),
+    url: '',
+    filters: {
+      components: [],
+    },
+    columns: [],
+    type: ComponentTypes.integrationTable,
   },
   [ComponentTypes.button]: {
     uuid: genUUID(),
@@ -31,7 +42,8 @@ export const getInitialComponentValue: () => Record<
   [ComponentTypes.date]: {
     uuid: genUUID(),
     type: ComponentTypes.date,
-    title: '',
+    format: 'YYYY-MM-DD',
+    //title: '',
   },
   [ComponentTypes.input]: {
     uuid: genUUID(),

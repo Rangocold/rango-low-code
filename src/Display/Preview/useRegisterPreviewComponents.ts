@@ -1,9 +1,11 @@
+import { ComponentConfigs } from './../../ComponentFormDrawer/consts';
 
 import { useEffect } from 'react';
 import { useGlobalContext } from '../../Stores';
 import { GlobalContextActionEnum } from '../../Stores/types';
 import { ComponentTypes } from '../../Toolbar/consts';
 import IntegrationForm from './IntegrationForm';
+import IntegrationTable from './IntegrationTable';
 import Input from './Input';
 import Number from './Number';
 import Textarea from './Textarea';
@@ -14,6 +16,10 @@ export const PreviewComponentList = [
   {
     componentType: ComponentTypes.interationForm,
     componentConstructor: IntegrationForm,
+  },
+  {
+    componentType: ComponentTypes.integrationTable,
+    componentConstructor: IntegrationTable,
   },
   {
     componentType: ComponentTypes.input,

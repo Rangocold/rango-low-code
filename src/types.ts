@@ -59,10 +59,12 @@ export interface IntegrationFormProps extends FieldPublicProps {
   components: BaseFormProps['components'];
 }
 
+export type IntegrationTableColumnConvertRulesProps = { key: string, value: string }[];
+
 export interface IntegrationTableColumnProps {
   fieldName: string;
   fieldKey: string;
-  convertRuleMap: Map<string, string>;
+  convertRuleMap: IntegrationTableColumnConvertRulesProps;
   component?: ComponentProps;
   sorter?: boolean;
 }

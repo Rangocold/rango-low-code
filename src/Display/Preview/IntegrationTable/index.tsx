@@ -1,13 +1,19 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
+import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import { IntegrationTableProps } from '../../../types';
 import Filter from './Filter';
 import Table from './Table';
 import type { DataSourceProps } from './types';
 import { DefaultPageNumber } from '../../../consts';
 import { SorterResult } from 'antd/lib/table/interface';
-import axios from 'axios';
 import type { TablePaginationConfig } from 'antd';
+import axios from 'axios';
 import type { CancelTokenSource } from 'axios';
+// ascend descend
+const NumOfRows = 10;
+const EmptyRow = '-';
+const SortAscend = 'ascend';
+const SortDescend = 'descend';
+const SortNull = null;
 
 export default function IntegrationTable(props: IntegrationTableProps) {
   const tokenSourceRef = useRef<CancelTokenSource>();
@@ -16,6 +22,20 @@ export default function IntegrationTable(props: IntegrationTableProps) {
       tokenSourceRef.current.cancel();
     }
   }, [tokenSourceRef]);
+  const generateDefaultDataSource = useCallback(() => {
+    const tmpDataSource: DataSourceProps[] = [];
+
+    for (let i = 0; i < NumOfRows; ++i) {
+      const row: DataSourceProps = {};
+      for (const column of props.columns) {
+        row[column.fieldKey] = EmptyRow;
+      }
+      tmpDataSource.push(row);
+    }
+
+    return tmpDataSource;
+  }, [props.columns]);
+
   const [dataSource, setDataSource] = useState<DataSourceProps[]>([]);
   const [pagination, setPagination] = useState({
     pageNumber: DefaultPageNumber,
@@ -41,8 +61,9 @@ export default function IntegrationTable(props: IntegrationTableProps) {
           setDataSource(res);
         }
       })
-      .catch((e) => {
-        console.log(e);
+      .catch(() => {
+        const tmpDataSource = generateDefaultDataSource();
+        setDataSource(tmpDataSource);
       });
   }, [props.url, filter, pagination, sorter]);
 
@@ -63,6 +84,7 @@ export default function IntegrationTable(props: IntegrationTableProps) {
   );
 
   const onFilterChange = useCallback((filters) => {
+    setSorter({ order: SortNull });
     setPagination({ pageNumber: DefaultPageNumber });
     setFilter(filters);
   }, []);

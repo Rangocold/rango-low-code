@@ -15,14 +15,13 @@ export default function IntegrationTableColums(
         title: column.fieldName,
         dataIndex: column.fieldKey,
         sorter: column.sorter,
-        render: (value: string) => {
-          if (
-            !isNil(column.convertRuleMap) &&
-            column.convertRuleMap.has(value)
-          ) {
-            return column.convertRuleMap.get(value);
+        render: (text: string) => {
+          for (const convertRule of column.convertRuleMap) {
+            if (convertRule.key === text) {
+              return convertRule.value;
+            }
           }
-          return value;
+          return text;
         },
       });
     }
