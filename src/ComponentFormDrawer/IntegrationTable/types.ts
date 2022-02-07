@@ -1,11 +1,11 @@
-import { IntegrationTableColumnProps, IntegrationTableColumnConvertRulesProps } from './../../types';
+import { IntegrationTableColumnItemProps, IntegrationTableColumnConvertRulesProps } from './../../types';
 export interface ColumnConfigProps {
-  value?: IntegrationTableColumnProps[];
-  onChange?: (columns: IntegrationTableColumnProps[]) => void;
+  value?: IntegrationTableColumnItemProps[];
+  onChange?: (columns: IntegrationTableColumnItemProps[]) => void;
 }
 
-export interface SingleColumnConfigProps extends IntegrationTableColumnProps {
-  onChange?: (column: IntegrationTableColumnProps) => void;
+export interface SingleColumnConfigProps extends IntegrationTableColumnItemProps {
+  onChange?: (column: IntegrationTableColumnItemProps) => void;
 }
 
 export interface ConvertRuleConfigProps {

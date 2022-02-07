@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { ColumnConfigProps } from './types';
 import AddButton from '../../BaseComponents/AddButton';
 import SingleColumnConfig from './SingleColumn';
-import { IntegrationTableColumnProps } from '../../types';
+import { IntegrationTableColumnItemProps } from '../../types';
 import { updateArray } from '../../Utils';
 
 export default function ColumnConfig({ value, onChange }: ColumnConfigProps) {
@@ -20,7 +20,7 @@ export default function ColumnConfig({ value, onChange }: ColumnConfigProps) {
     onChange && onChange(newValue);
   }, [valueArray, onChange]);
   const onChangeColumn = useCallback(
-    (newColumnConfig: IntegrationTableColumnProps, idx: number) => {
+    (newColumnConfig: IntegrationTableColumnItemProps, idx: number) => {
       const newValue = updateArray(valueArray, idx, newColumnConfig);
       onChange && onChange(newValue);
     },

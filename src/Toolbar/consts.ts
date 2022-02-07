@@ -12,9 +12,12 @@ export enum ComponentTypes {
   interationForm,
   componentSelection,
   integrationTable,
+  integrationTableFilter,
+  integrationTableColumnList,
+  integrationTableColumnItem,
 }
 
-export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
+/* export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
   [ComponentTypes.select]: {
     uuid: genUUID(),
     type: ComponentTypes.select,
@@ -47,13 +50,19 @@ export const DefaultComponentMap: Record<ComponentTypes, ComponentProps> = {
     uuid: genUUID(),
     type: ComponentTypes.interationForm,
     components: [],
+    submitUrl: '',
+    button: {
+      type: ComponentTypes.button,
+      uuid: genUUID(),
+      text: '',
+    },
   },
   [ComponentTypes.componentSelection]: {
     uuid: genUUID(),
     type: ComponentTypes.componentSelection,
   },
 };
-
+ */
 export const ComponentOptions = [
   {
     value: ComponentTypes.interationForm,

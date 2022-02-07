@@ -59,24 +59,35 @@ export interface IntegrationFormProps extends FieldPublicProps {
   components: BaseFormProps['components'];
 }
 
-export type IntegrationTableColumnConvertRulesProps = { key: string, value: string }[];
+export type IntegrationTableColumnConvertRulesProps = {
+  key: string;
+  value: string;
+}[];
 
-export interface IntegrationTableColumnProps {
+export interface IntegrationTableColumnListProps extends FieldPublicProps {
+  type: ComponentTypes.integrationTableColumnList;
+  components: ComponentProps[];
+}
+
+export interface IntegrationTableColumnItemProps extends FieldPublicProps {
+  type: ComponentTypes.integrationTableColumnItem;
   fieldName: string;
   fieldKey: string;
   convertRuleMap: IntegrationTableColumnConvertRulesProps;
-  component?: ComponentProps;
+  components?: ComponentProps[];
   sorter?: boolean;
+}
+
+export interface IntegrationTableFilterProps extends FieldPublicProps {
+  type: ComponentTypes.integrationTableFilter;
+  components: ComponentProps[];
 }
 
 export interface IntegrationTableProps extends FieldPublicProps {
   type: ComponentTypes.integrationTable;
   url: string;
-  filters: {
-    components: ComponentProps[];
-  };
-  columns: IntegrationTableColumnProps[];
-};
+  components: [IntegrationTableFilterProps, IntegrationTableColumnListProps];
+}
 
 export type ComponentProps =
   | IntegrationFormProps
@@ -86,7 +97,10 @@ export type ComponentProps =
   | NumberProps
   | DateProps
   | ButtonProps
-  | IntegrationTableProps;
+  | IntegrationTableProps
+  | IntegrationTableColumnItemProps
+  | IntegrationTableColumnListProps
+  | IntegrationTableFilterProps;
 
 export interface BaseInputPublicProps {
   label?: string;

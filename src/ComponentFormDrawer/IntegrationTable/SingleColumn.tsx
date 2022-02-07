@@ -36,8 +36,8 @@ function ConvertRuleConfig(props: ConvertRuleConfigProps) {
       {(props.value ?? []).map((item, idx) => {
         return (
           <Row key={item.key}>
-            <Col span={2}>Key</Col>
-            <Col span={10}>
+            <Col span={4}>Key</Col>
+            <Col span={8}>
               <Input
                 onChange={(event) => {
                   onChange(
@@ -51,8 +51,8 @@ function ConvertRuleConfig(props: ConvertRuleConfigProps) {
                 value={item.key}
               />
             </Col>
-            <Col span={2}>Value</Col>
-            <Col span={10}>
+            <Col span={4}>Value</Col>
+            <Col span={8}>
               <Input
                 onChange={(event) => {
                   onChange(
@@ -83,7 +83,7 @@ export default function SingleColumnConfig(props: SingleColumnConfigProps) {
     [props.onChange]
   );
   return (
-    <Form form={form} onValuesChange={onValuesChange}>
+    <Form form={form} onValuesChange={onValuesChange} layout='vertical'>
       <Form.Item name='fieldName' label='Field Name'>
         <Input />
       </Form.Item>

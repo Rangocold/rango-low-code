@@ -6,6 +6,8 @@ import { GlobalContextActionEnum } from '../../Stores/types';
 import { ComponentTypes } from '../../Toolbar/consts';
 import IntegrationForm from './IntegrationForm';
 import IntegrationTable from './IntegrationTable';
+import IntegrationTableFilter from './IntegrationTable/Filter';
+import IntegrationTableColums from './IntegrationTable/Table';
 import Input from './Input';
 import Number from './Number';
 import Textarea from './Textarea';
@@ -20,6 +22,14 @@ export const PreviewComponentList = [
   {
     componentType: ComponentTypes.integrationTable,
     componentConstructor: IntegrationTable,
+  },
+  {
+    componentType: ComponentTypes.integrationTableFilter,
+    componentConstructor: IntegrationTableFilter,
+  },
+  {
+    componentType: ComponentTypes.integrationTableColumnList,
+    componentConstructor: IntegrationTableColums,
   },
   {
     componentType: ComponentTypes.input,

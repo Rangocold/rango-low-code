@@ -27,10 +27,18 @@ export const getInitialComponentValue: () => Record<
   [ComponentTypes.integrationTable]: {
     uuid: genUUID(),
     url: '',
-    filters: {
-      components: [],
-    },
-    columns: [],
+    components: [
+      {
+        type: ComponentTypes.integrationTableFilter,
+        uuid: genUUID(),
+        components: [],
+      },
+      {
+        type: ComponentTypes.integrationTableColumnList,
+        uuid: genUUID(),
+        components: [],
+      }
+    ],
     type: ComponentTypes.integrationTable,
   },
   [ComponentTypes.button]: {
@@ -68,6 +76,9 @@ export const getInitialComponentValue: () => Record<
     title: '',
   },
   [ComponentTypes.componentSelection]: {
+    // @ts-ignore
+    type: ComponentTypes.componentSelection,
     uuid: genUUID(),
+    components: [],
   },
 });
