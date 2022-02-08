@@ -1,13 +1,17 @@
 import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
-import { IntegrationTableProps } from '../../../types';
+import { IntegrationTableColumnListProps, IntegrationTableProps } from '../../../types';
 import Filter from './Filter';
 import Table from './Table';
 import type { DataSourceProps } from './types';
-import { DefaultPageNumber } from '../../../consts';
+import { DefaultPageNumber, getInitialComponentValue } from '../../../consts';
 import { SorterResult } from 'antd/lib/table/interface';
 import type { TablePaginationConfig } from 'antd';
+import { message } from 'antd';
 import axios from 'axios';
 import type { CancelTokenSource } from 'axios';
+import { ComponentTypes } from '../../../Toolbar/consts';
+import { isNil } from 'lodash';
+
 // ascend descend
 const NumOfRows = 10;
 const EmptyRow = '-';
@@ -16,6 +20,23 @@ const SortDescend = 'descend';
 const SortNull = null;
 
 export default function IntegrationTable(props: IntegrationTableProps) {
+  const filterConfig = useMemo(() => {
+    for (const config of props.components ?? []) {
+      if (config.type === ComponentTypes.integrationTableFilter) {
+        return config;
+      }
+    }
+  }, [props.components]);
+  const columnsConfig = useMemo(() => {
+    for (const config of props.components ?? []) {
+      if (config.type === ComponentTypes.integrationTableColumnList) {
+        return config;
+      }
+    }
+    message.error(`Integration Table ${props.uuid} does not container columns`);
+    const initialComponentValue = getInitialComponentValue();
+    return initialComponentValue[ComponentTypes.integrationTableColumnList] as IntegrationTableColumnListProps;
+  }, []);
   const tokenSourceRef = useRef<CancelTokenSource>();
   const cancelRequesting = useCallback(() => {
     if (tokenSourceRef.current && tokenSourceRef.current.cancel) {
@@ -27,14 +48,14 @@ export default function IntegrationTable(props: IntegrationTableProps) {
 
     for (let i = 0; i < NumOfRows; ++i) {
       const row: DataSourceProps = {};
-      for (const column of props.columns) {
+      for (const column of columnsConfig.components ?? []) {
         row[column.fieldKey] = EmptyRow;
       }
       tmpDataSource.push(row);
     }
 
     return tmpDataSource;
-  }, [props.columns]);
+  }, [columnsConfig]);
 
   const [dataSource, setDataSource] = useState<DataSourceProps[]>([]);
   const [pagination, setPagination] = useState({
@@ -97,10 +118,10 @@ export default function IntegrationTable(props: IntegrationTableProps) {
   }, [filter, pagination, sorter]);
   return (
     <>
-      <Filter {...props.filters} onFilterChange={onFilterChange} />
+      {!isNil(filterConfig) && <Filter {...filterConfig} onFilterChange={onFilterChange} />}
       <Table
         dataSource={dataSource}
-        columns={props.columns}
+        columns={columnsConfig.components}
         pagination={pagination}
         onTableChange={onTableChange}
       />

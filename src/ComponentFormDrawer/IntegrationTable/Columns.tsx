@@ -2,33 +2,50 @@ import React, { useCallback, useMemo } from 'react';
 import { ColumnConfigProps } from './types';
 import AddButton from '../../BaseComponents/AddButton';
 import SingleColumnConfig from './SingleColumn';
-import { IntegrationTableColumnItemProps } from '../../types';
+import { IntegrationTableColumnItemProps, IntegrationTableColumnListProps } from '../../types';
 import { updateArray } from '../../Utils';
+import { v4 as genUUID } from 'uuid';
+import { ComponentTypes } from '../../Toolbar/consts';
+import UUIDInput from '../Public/UUIDInput';
+import { getInitialComponentValueByType } from '../../consts';
 
 export default function ColumnConfig({ value, onChange }: ColumnConfigProps) {
-  const valueArray = useMemo(() => {
-    return Array.isArray(value) ? value : [];
+  const components = useMemo(() => {
+    const components = value?.components;
+    return Array.isArray(components) ? components : [];
   }, [value]);
+  const onChangeComponents = useCallback((newValue: IntegrationTableColumnListProps['components']) => {
+    const defaultValue = getInitialComponentValueByType(ComponentTypes.integrationTableColumnList) as IntegrationTableColumnListProps;
+    onChange && onChange({
+      ...defaultValue,
+      components: newValue,
+    })
+  }, [components, onChange]);
   const onAdd = useCallback(() => {
-    const newValue = [...valueArray];
+    const newValue = [...components];
     newValue.push({
+      uuid: genUUID(),
+      type: ComponentTypes.integrationTableColumnItem,
       fieldKey: '',
       fieldName: '',
       convertRuleMap: [],
       sorter: false,
+      components: [],
     });
-    onChange && onChange(newValue);
-  }, [valueArray, onChange]);
+
+    onChangeComponents(newValue);
+  }, [components, onChange]);
   const onChangeColumn = useCallback(
     (newColumnConfig: IntegrationTableColumnItemProps, idx: number) => {
-      const newValue = updateArray(valueArray, idx, newColumnConfig);
-      onChange && onChange(newValue);
+      const newValue = updateArray(components, idx, newColumnConfig);
+      onChangeComponents(newValue);
     },
-    [onChange, valueArray]
+    [onChange, components]
   );
   return (
-    <div>
-      {valueArray.map((config, idx) => (
+    <>
+      <UUIDInput />
+      {components.map((config, idx) => (
         <SingleColumnConfig
           {...config}
           onChange={(newColumnConfig) => onChangeColumn(newColumnConfig, idx)}
@@ -36,6 +53,6 @@ export default function ColumnConfig({ value, onChange }: ColumnConfigProps) {
       ))}
 
       <AddButton onAdd={onAdd} />
-    </div>
+    </>
   );
 }

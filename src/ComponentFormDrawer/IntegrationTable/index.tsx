@@ -16,14 +16,14 @@ export default function IntegrationTable() {
       <Form.Item label='Data Source Url' name='url'>
         <Input />
       </Form.Item>
-      <Collapse>
+      {/* <Collapse>
         <Collapse.Panel header='Filter' key={PanelKey.Filter}>
           <FilterConfig />
         </Collapse.Panel>
         <Collapse.Panel header='Table' key={PanelKey.Table}>
           <TableConfig />
         </Collapse.Panel>
-      </Collapse>
+      </Collapse> */}
     </>
   );
 }

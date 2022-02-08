@@ -82,3 +82,8 @@ export const getInitialComponentValue: () => Record<
     components: [],
   },
 });
+
+export function getInitialComponentValueByType(type: ComponentTypes) {
+  const initialComponentValue = getInitialComponentValue();
+  return initialComponentValue[type];
+}

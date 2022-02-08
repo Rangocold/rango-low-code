@@ -5,7 +5,8 @@ import { Form } from 'antd';
 export default function FilterConfig() {
   return (
     <>
-      <Form.Item name={['filters', 'components']}>
+      <UUIDInput />
+      <Form.Item name='components'>
         <ComponentSelection />
       </Form.Item>
     </>

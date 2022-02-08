@@ -7,6 +7,8 @@ import Textarea from './Textarea';
 import Number from './Number';
 import Date from './Date';
 import IntegrationTable from './IntegrationTable';
+import IntegrationTableFilters from './IntegrationTable/Filter';
+import IntegrationTableColumns from './IntegrationTable/Columns';
 
 export function useRenderConfig() {
   const renderConfig = useCallback((componentType: ComponentTypes) => {
@@ -28,6 +30,12 @@ export function useRenderConfig() {
       }
       case ComponentTypes.integrationTable: {
         return React.createElement(IntegrationTable);
+      }
+      case ComponentTypes.integrationTableColumnList: {
+        return React.createElement(IntegrationTableColumns);
+      }
+      case ComponentTypes.integrationTableFilter: {
+        return React.createElement(IntegrationTableFilters);
       }
       case ComponentTypes.date: {
         return React.createElement(Date);

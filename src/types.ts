@@ -66,7 +66,7 @@ export type IntegrationTableColumnConvertRulesProps = {
 
 export interface IntegrationTableColumnListProps extends FieldPublicProps {
   type: ComponentTypes.integrationTableColumnList;
-  components: ComponentProps[];
+  components: IntegrationTableColumnItemProps[];
 }
 
 export interface IntegrationTableColumnItemProps extends FieldPublicProps {
