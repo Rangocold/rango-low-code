@@ -1,9 +1,13 @@
-import { IntegrationTableProps } from '../../../types';
+import {
+  IntegrationTableColumnListProps,
+  IntegrationTableFilterProps,
+} from '../../../types';
 import type { TablePaginationConfig } from 'antd';
 import { SorterResult } from 'antd/lib/table/interface';
 
 export interface IntegrationTableColumsProps {
-  columns: IntegrationTableProps['columns'];
+  sorter?: SorterResult<DataSourceProps>;
+  columns: IntegrationTableColumnListProps['components'];
   dataSource: DataSourceProps[];
   pagination: {
     pageNumber: number;
@@ -16,6 +20,6 @@ export interface IntegrationTableColumsProps {
 }
 export type DataSourceProps = Record<string, string>;
 
-export type IntegrationTableFilterConfigProps = IntegrationTableProps['filters'] & {
+export type IntegrationTableFilterConfigProps = IntegrationTableFilterProps & {
   onFilterChange: (filter: Record<string, unknown>) => unknown;
-}
+};

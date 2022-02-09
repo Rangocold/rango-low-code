@@ -4,6 +4,19 @@ import { ColumnProps } from 'antd/lib/table';
 import { isNil } from 'lodash';
 import { DefaultPageSize } from '../../../consts';
 import type { IntegrationTableColumsProps } from './types';
+import { SortNull } from './consts';
+import { IntegrationTableColumnItemProps } from '../../../types';
+
+function getSortOrder(column: IntegrationTableColumnItemProps, sorter: IntegrationTableColumsProps['sorter']) {
+  if (!column.sorter) {
+    return SortNull;
+  }
+
+  if (sorter?.field === column.fieldKey) {
+    return sorter.order;
+  }
+  return SortNull;
+}
 
 export default function IntegrationTableColums(
   props: IntegrationTableColumsProps
@@ -15,6 +28,7 @@ export default function IntegrationTableColums(
         title: column.fieldName,
         dataIndex: column.fieldKey,
         sorter: column.sorter,
+        sortOrder: getSortOrder(column, props.sorter),
         render: (text: string) => {
           for (const convertRule of column.convertRuleMap) {
             if (convertRule.key === text) {

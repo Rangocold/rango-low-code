@@ -23,14 +23,14 @@ export const PreviewComponentList = [
     componentType: ComponentTypes.integrationTable,
     componentConstructor: IntegrationTable,
   },
-  {
+  /* {
     componentType: ComponentTypes.integrationTableFilter,
     componentConstructor: IntegrationTableFilter,
   },
   {
     componentType: ComponentTypes.integrationTableColumnList,
     componentConstructor: IntegrationTableColums,
-  },
+  }, */
   {
     componentType: ComponentTypes.input,
     componentConstructor: Input,

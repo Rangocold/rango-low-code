@@ -1,5 +1,14 @@
-import React, { useCallback, useState, useEffect, useRef, useMemo } from 'react';
-import { IntegrationTableColumnListProps, IntegrationTableProps } from '../../../types';
+import React, {
+  useCallback,
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+} from 'react';
+import {
+  IntegrationTableColumnListProps,
+  IntegrationTableProps,
+} from '../../../types';
 import Filter from './Filter';
 import Table from './Table';
 import type { DataSourceProps } from './types';
@@ -11,13 +20,8 @@ import axios from 'axios';
 import type { CancelTokenSource } from 'axios';
 import { ComponentTypes } from '../../../Toolbar/consts';
 import { isNil } from 'lodash';
-
-// ascend descend
-const NumOfRows = 10;
-const EmptyRow = '-';
-const SortAscend = 'ascend';
-const SortDescend = 'descend';
-const SortNull = null;
+import { NumOfRows, EmptyRow, SortNull } from './consts';
+import Container from '../Container';
 
 export default function IntegrationTable(props: IntegrationTableProps) {
   const filterConfig = useMemo(() => {
@@ -35,8 +39,10 @@ export default function IntegrationTable(props: IntegrationTableProps) {
     }
     message.error(`Integration Table ${props.uuid} does not container columns`);
     const initialComponentValue = getInitialComponentValue();
-    return initialComponentValue[ComponentTypes.integrationTableColumnList] as IntegrationTableColumnListProps;
-  }, []);
+    return initialComponentValue[
+      ComponentTypes.integrationTableColumnList
+    ] as IntegrationTableColumnListProps;
+  }, [props.components]);
   const tokenSourceRef = useRef<CancelTokenSource>();
   const cancelRequesting = useCallback(() => {
     if (tokenSourceRef.current && tokenSourceRef.current.cancel) {
@@ -114,17 +120,24 @@ export default function IntegrationTable(props: IntegrationTableProps) {
     requestData();
     return () => {
       cancelRequesting();
-    }
+    };
   }, [filter, pagination, sorter]);
   return (
     <>
-      {!isNil(filterConfig) && <Filter {...filterConfig} onFilterChange={onFilterChange} />}
-      <Table
-        dataSource={dataSource}
-        columns={columnsConfig.components}
-        pagination={pagination}
-        onTableChange={onTableChange}
-      />
+      {!isNil(filterConfig) && (
+        <Container uuid={filterConfig.uuid}>
+          <Filter {...filterConfig} onFilterChange={onFilterChange} />
+        </Container>
+      )}
+      <Container uuid={columnsConfig.uuid}>
+        <Table
+          sorter={sorter}
+          dataSource={dataSource}
+          columns={columnsConfig.components}
+          pagination={pagination}
+          onTableChange={onTableChange}
+        />
+      </Container>
     </>
   );
 }

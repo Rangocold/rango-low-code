@@ -9,9 +9,10 @@ import Date from './Date';
 import IntegrationTable from './IntegrationTable';
 import IntegrationTableFilters from './IntegrationTable/Filter';
 import IntegrationTableColumns from './IntegrationTable/Columns';
+import { message } from 'antd';
 
 export function useRenderConfig() {
-  const renderConfig = useCallback((componentType: ComponentTypes) => {
+  const renderConfig = useCallback((componentType?: ComponentTypes) => {
     switch (componentType) {
       case ComponentTypes.interationForm: {
         return React.createElement(IntegrationForm);
@@ -39,6 +40,10 @@ export function useRenderConfig() {
       }
       case ComponentTypes.date: {
         return React.createElement(Date);
+      }
+      default: {
+        message.error(`Component Type ${componentType} is not valid`)
+        return <></>;
       }
     }
   }, []);
