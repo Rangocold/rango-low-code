@@ -7,7 +7,9 @@ export default function Renders({ context }: { context: GlobalContextProps }) {
   const { renderPreviewNode } = useRenderPreviewNode();
   return (
     <div className={style['preview__container']}>
-      {(context?.state?.components ?? []).map((component) => renderPreviewNode(component))}
+      {(context?.state?.components ?? []).map((component) => {
+        return renderPreviewNode(component);
+      })}
     </div>
   );
 }

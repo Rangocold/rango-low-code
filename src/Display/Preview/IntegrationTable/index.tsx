@@ -30,7 +30,7 @@ export default function IntegrationTable(props: IntegrationTableProps) {
         return config;
       }
     }
-  }, [props.components]);
+  }, [props]);
   const columnsConfig = useMemo(() => {
     for (const config of props.components ?? []) {
       if (config.type === ComponentTypes.integrationTableColumnList) {
@@ -42,7 +42,7 @@ export default function IntegrationTable(props: IntegrationTableProps) {
     return initialComponentValue[
       ComponentTypes.integrationTableColumnList
     ] as IntegrationTableColumnListProps;
-  }, [props.components]);
+  }, [props]);
   const tokenSourceRef = useRef<CancelTokenSource>();
   const cancelRequesting = useCallback(() => {
     if (tokenSourceRef.current && tokenSourceRef.current.cancel) {

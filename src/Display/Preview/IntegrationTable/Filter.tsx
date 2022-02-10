@@ -23,7 +23,7 @@ export default function IntegrationTableFilters(
         form={form}
         onValuesChange={(_, values) => props.onFilterChange(values)}
       >
-        <Row>
+        <Row gutter={16}>
           {props.components.map((component) => {
             return <Col span={8}>{renderPreviewNode(component)}</Col>;
           })}

@@ -7,20 +7,12 @@ import { updateArray } from '../../Utils';
 import { v4 as genUUID } from 'uuid';
 import { ComponentTypes } from '../../Toolbar/consts';
 import UUIDInput from '../Public/UUIDInput';
-import { getInitialComponentValueByType } from '../../consts';
+import { Form } from 'antd';
 
-export default function ColumnConfig({ value, onChange }: ColumnConfigProps) {
+export function ColumnConfig({ value, onChange }: ColumnConfigProps) {
   const components = useMemo(() => {
-    const components = value?.components;
-    return Array.isArray(components) ? components : [];
+    return Array.isArray(value) ? value : [];
   }, [value]);
-  const onChangeComponents = useCallback((newValue: IntegrationTableColumnListProps['components']) => {
-    const defaultValue = getInitialComponentValueByType(ComponentTypes.integrationTableColumnList) as IntegrationTableColumnListProps;
-    onChange && onChange({
-      ...defaultValue,
-      components: newValue,
-    })
-  }, [components, onChange]);
   const onAdd = useCallback(() => {
     const newValue = [...components];
     newValue.push({
@@ -33,26 +25,35 @@ export default function ColumnConfig({ value, onChange }: ColumnConfigProps) {
       components: [],
     });
 
-    onChangeComponents(newValue);
+    onChange && onChange(newValue);
   }, [components, onChange]);
   const onChangeColumn = useCallback(
     (newColumnConfig: IntegrationTableColumnItemProps, idx: number) => {
       const newValue = updateArray(components, idx, newColumnConfig);
-      onChangeComponents(newValue);
+      onChange && onChange(newValue);
     },
     [onChange, components]
   );
   return (
     <>
-      <UUIDInput />
-      {components.map((config, idx) => (
+       {components.map((config, idx) => (
         <SingleColumnConfig
           {...config}
           onChange={(newColumnConfig) => onChangeColumn(newColumnConfig, idx)}
         />
       ))}
-
       <AddButton onAdd={onAdd} />
     </>
   );
+}
+
+export default function ColumnsConfigForm() {
+  return (
+    <>
+      <UUIDInput />
+      <Form.Item name='components' label='Components'>
+        <ColumnConfig />
+      </Form.Item>
+    </>
+  )
 }

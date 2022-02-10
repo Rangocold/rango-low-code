@@ -93,6 +93,7 @@ export default function SingleColumnConfig(props: SingleColumnConfigProps) {
       <Form.Item
         name='convertRuleMap'
         label='Convert Rule'
+        initialValue={[]}
         rules={[
           {
             validator: (

@@ -15,3 +15,12 @@
 拼接dataIndex？ 这方案好
 
 table用的是antd的，所以实际上是没有column这个单位的，那么点中table的时候，其实就要对column进行配置
+
+基础组件的复用问题
+
+select的value值到底是自定义还是默认用uuid？
+使用uuid的地方，应该要允许自定义？
+
+目前有两个问题
+1.实现配置场景化
+2.允许自定义uuid
