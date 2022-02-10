@@ -2,12 +2,12 @@ import React, { useCallback, useMemo } from 'react';
 import { ColumnConfigProps } from './types';
 import AddButton from '../../BaseComponents/AddButton';
 import SingleColumnConfig from './SingleColumn';
-import { IntegrationTableColumnItemProps, IntegrationTableColumnListProps } from '../../types';
+import { IntegrationTableColumnItemProps } from '../../types';
 import { updateArray } from '../../Utils';
 import { v4 as genUUID } from 'uuid';
 import { ComponentTypes } from '../../Toolbar/consts';
 import UUIDInput from '../Public/UUIDInput';
-import { Form } from 'antd';
+import { Form, Collapse } from 'antd';
 
 export function ColumnConfig({ value, onChange }: ColumnConfigProps) {
   const components = useMemo(() => {
@@ -36,12 +36,23 @@ export function ColumnConfig({ value, onChange }: ColumnConfigProps) {
   );
   return (
     <>
-       {components.map((config, idx) => (
-        <SingleColumnConfig
-          {...config}
-          onChange={(newColumnConfig) => onChangeColumn(newColumnConfig, idx)}
-        />
-      ))}
+      <Collapse>
+        {components.map((config, idx) => (
+          <Collapse.Panel
+            key={config.uuid}
+            header={`Column ${idx + 1}`}
+            collapsible='header'
+          >
+            <SingleColumnConfig
+              {...config}
+              onChange={(newColumnConfig) =>
+                onChangeColumn(newColumnConfig, idx)
+              }
+            />
+          </Collapse.Panel>
+        ))}
+      </Collapse>
+
       <AddButton onAdd={onAdd} />
     </>
   );
@@ -55,5 +66,5 @@ export default function ColumnsConfigForm() {
         <ColumnConfig />
       </Form.Item>
     </>
-  )
+  );
 }

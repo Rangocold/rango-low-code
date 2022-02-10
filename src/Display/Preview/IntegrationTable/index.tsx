@@ -22,6 +22,7 @@ import { ComponentTypes } from '../../../Toolbar/consts';
 import { isNil } from 'lodash';
 import { NumOfRows, EmptyRow, SortNull } from './consts';
 import Container from '../Container';
+import styles from './style.module.css';
 
 export default function IntegrationTable(props: IntegrationTableProps) {
   const filterConfig = useMemo(() => {
@@ -123,7 +124,7 @@ export default function IntegrationTable(props: IntegrationTableProps) {
     };
   }, [filter, pagination, sorter]);
   return (
-    <>
+    <div className={styles['integration_table__preview__container']}>
       {!isNil(filterConfig) && (
         <Container uuid={filterConfig.uuid}>
           <Filter {...filterConfig} onFilterChange={onFilterChange} />
@@ -138,6 +139,6 @@ export default function IntegrationTable(props: IntegrationTableProps) {
           onTableChange={onTableChange}
         />
       </Container>
-    </>
+    </div>
   );
 }

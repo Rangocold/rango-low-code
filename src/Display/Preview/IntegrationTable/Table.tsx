@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Table } from 'antd';
+import { Table, Card } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import { isNil } from 'lodash';
 import { DefaultPageSize } from '../../../consts';
@@ -42,7 +42,7 @@ export default function IntegrationTableColums(
     return res;
   }, [props.columns]);
   return (
-    <>
+    <Card>
       <Table
         onChange={props.onTableChange}
         dataSource={props.dataSource}
@@ -52,6 +52,6 @@ export default function IntegrationTableColums(
           current: props.pagination.pageNumber,
         }}
       />
-    </>
+    </Card>
   );
 }
