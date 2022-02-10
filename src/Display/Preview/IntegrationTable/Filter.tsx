@@ -8,10 +8,10 @@ export default function IntegrationTableFilters(
 ) {
   const [form] = Form.useForm();
   const onSearch = useCallback(
-    (filters) => {
-      props.onFilterChange(filters);
+    () => {
+      props.onFilterChange(form.getFieldsValue());
     },
-    [props.onFilterChange]
+    [props.onFilterChange, form]
   );
   const onReset = useCallback(() => {
     props.onFilterChange({});
@@ -36,7 +36,6 @@ export default function IntegrationTableFilters(
             </Space>
           </Col>
         </Row>
-        {/* <BaseForm components={props.components} itemPerRow={3} /> */}
       </Form>
     </Card>
   );
