@@ -1,7 +1,7 @@
-import { LeftParenthesis } from './../consts';
 import { Comma, LeftParenthesis, RightParenthesis } from '../consts';
 import { ExpressionAstNode, ExpressionTypes } from '../types';
 import { getInitialAstNode } from './utils';
+import { isNil } from 'lodash';
 
 export function getParenthesisMap(expression: string) {
   const parenthesisMap = new Map<number, number>();
@@ -40,15 +40,33 @@ export function parseParamsToAst(
   expression: string,
   leftIdx: number,
   rightIdx: number,
-  parenthesisMap?: Map<number, number>
+  parenthesisMap: Map<number, number>
 ): ExpressionAstNode[] {
   const res: ExpressionAstNode[] = [];
+  if (leftIdx > rightIdx) {
+    return res;
+  }
+  res.push(getInitialAstNode());
+  for (let i = leftIdx; i <= rightIdx; ++i) {
+    const currentLetter = expression[i];
+    if (currentLetter === LeftParenthesis) {
+      const rightIdx = parenthesisMap.get(i);
+      if ()
+      res[res.length - 1].params = parseParamsToAst(expression, i, )
+    } else if (currentLetter === Comma) {
+      res.push(getInitialAstNode());
+    } else {
+      res[res.length - 1].expression += currentLetter;
+    }
+  }
   return res;
 }
 
 export function parseExpressionToAst(
   expression: string,
-  parenthesisMap?: Map<number, number>
+  parenthesisMap?: Map<number, number>,
+  startIdx = 0,
+  endIdx = expression.length - 1,
 ): ExpressionAstNode | undefined {
   const node = getInitialAstNode();
   if (parenthesisMap === undefined) {
@@ -60,7 +78,7 @@ export function parseExpressionToAst(
     }
   }
 
-  for (let i = 0; i < expression.length; ++i) {
+  for (let i = startIdx; i <= endIdx; ++i) {
     const currentLetter = expression[i];
     if (currentLetter === LeftParenthesis) {
       const rightIdx = parenthesisMap.get(i);
@@ -68,8 +86,12 @@ export function parseExpressionToAst(
         return undefined;
       } else {
         node.type = ExpressionTypes.FunctionExpression;
-        node.startIdx = 
+        node.startIdx = i;
+        node.endIdx = rightIdx;
+        node.params = parseParamsToAst(expression, i + 1, rightIdx - 1, parenthesisMap);
       }
+    } else if (currentLetter === Comma) {
+      return undefined;
     } else {
       node.expression += currentLetter;
     }
