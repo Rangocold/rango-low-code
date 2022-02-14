@@ -4,15 +4,16 @@ import LabelInput from './LabelInput';
 import LabelColInput from './LabelColInput';
 import RequriedInput from './RequiredInput';
 import DisabledInput from './DisabledInput';
+import { BaseInputConfigProps } from '../../types';
 
-export default function PublicPropsInput() {
+export default function PublicPropsInput(config: BaseInputConfigProps) {
   return (
     <>
       <UUIDInput />
       <LabelInput />
-      <RequriedInput />
-      <DisabledInput />
-      <LabelColInput />
+      {!config.isHideRequired ? <RequriedInput /> : null}
+      {!config.isHideDisabled ? <DisabledInput /> : null}
+      {!config.isHideLabelCol ? <LabelColInput /> : null}
     </>
   )
 }

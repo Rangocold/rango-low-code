@@ -5,10 +5,10 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 export function wrapLabelWithHint(label?: string, hint?: string) {
   if (hint) {
     return (
-      <p>
+      <p style={{ marginBottom: 0 }}>
         {label}
         <Tooltip title={hint}>
-          <InfoCircleOutlined />
+          <InfoCircleOutlined style={{ marginLeft: '4px' }}/>
         </Tooltip>
       </p>
     );

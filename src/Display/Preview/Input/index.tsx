@@ -36,6 +36,7 @@ export default function Input(props: InputProps) {
       rules={rules}
       label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
+      initialValue={props.initialValue}
     >
       <AntInput disabled={props.disabled} className={style['preview__input']} />
     </Form.Item>

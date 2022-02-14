@@ -1,11 +1,13 @@
 import React from 'react';
 import { Input, Form } from 'antd';
 import PublicPropsInput from '../Public';
-
-export default function Date() {
+import HintInput from '../Public/HintInput';
+import { BaseInputConfigProps } from '../../types';
+export default function Date(config: BaseInputConfigProps) {
   return (
     <>
-      <PublicPropsInput />
+      <PublicPropsInput {...config} />
+      {!config.isHideHint ? <HintInput /> : null}
       <Form.Item name='format' label='Format'>
         <Input />
       </Form.Item>
