@@ -6,6 +6,14 @@ export interface FieldPublicProps {
   uuid: string;
 }
 
+export interface BaseInputConfigProps {
+  isHideHint?: boolean;
+  isHideLabelCol?: boolean;
+  isHideInitialValue?: boolean;
+  isHideRequired?: boolean;
+  isHideDisabled?: boolean;
+}
+
 export interface SelectFieldProps
   extends FieldPublicProps,
     BaseInputPublicProps {
@@ -108,4 +116,5 @@ export interface BaseInputPublicProps {
   labelCol?: number;
   initialValue?: string;
   disabled?: boolean;
+  fieldConfig?: BaseInputConfigProps;
 }

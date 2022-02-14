@@ -9,6 +9,10 @@ import { wrapLabelWithHint } from '../utils';
 export default function Number(props: NumberProps) {
   const rules = useMemo(() => {
     const res: Rule[] = [];
+    res.push({
+      required: props.required,
+      type: 'number',
+    })
     if (!isNil(props.min)) {
       res.push({
         type: 'number',

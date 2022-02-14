@@ -4,7 +4,7 @@ import { Form } from 'antd';
 import DatePicker from '../../../BaseComponents/DatePicker';
 import { isNil } from 'lodash';
 import { DefaultDateFormat } from '../../../consts';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import { wrapLabelWithHint } from '../utils';
 
 export default function Date(props: DateProps) {
@@ -26,15 +26,18 @@ export default function Date(props: DateProps) {
       label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
       getValueProps={(value: string) => {
-        return { value: new Dayjs(value) };
+        return { value: dayjs(value) };
       }}
       getValueFromEvent={(day: Dayjs) => {
         return day.format(props.format);
       }}
+      initialValue={dayjs(props.initialValue)}
     >
       <DatePicker
+        style={{ width: '100% '}}
+        disabled={props.disabled}
         format={props?.format ? props.format : DefaultDateFormat}
-        showTime={props.showTime}
+        //showTime={props.showTime}
       />
     </Form.Item>
   );

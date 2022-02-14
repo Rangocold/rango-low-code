@@ -29,27 +29,34 @@ export default function ConfigDrawer() {
     }
   }, [state.editingComponentUuid, form]);
 
-  const onValuesChange = useCallback(
-    () => {
-      const formData = form.getFieldsValue(true);
-      updateComponentByUuid(state.editingComponentUuid, formData, state.components);
-      dispatch({
-        type: GlobalContextActionEnum.setComponents,
-        payload: state.components,
-      });
-    },
-    [state.editingComponentUuid, state.components, form, dispatch]
-  );
+  const onValuesChange = useCallback(() => {
+    const formData = form.getFieldsValue(true);
+    updateComponentByUuid(
+      state.editingComponentUuid,
+      formData,
+      state.components
+    );
+    dispatch({
+      type: GlobalContextActionEnum.setComponents,
+      payload: state.components,
+    });
+  }, [state.editingComponentUuid, state.components, form, dispatch]);
 
   useEffect(() => {
     initConfigForm();
   }, [initConfigForm, state.editingComponentUuid]);
-  return (
-    <Layout.Sider className={style['config_form__container']} width={400} theme='light'>
+  return editingComponent ? (
+    <Layout.Sider
+      className={style['config_form__container']}
+      width={400}
+      theme='light'
+    >
       <Form form={form} onValuesChange={onValuesChange} layout={'vertical'}>
         <TypeInput />
-        {renderConfig(editingComponent?.type)}
+        {'fieldConfig' in editingComponent
+          ? renderConfig(editingComponent.type, editingComponent.fieldConfig)
+          : renderConfig(editingComponent.type)}
       </Form>
     </Layout.Sider>
-  );
+  ) : null;
 }
