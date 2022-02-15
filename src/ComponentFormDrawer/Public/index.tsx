@@ -5,6 +5,7 @@ import LabelColInput from './LabelColInput';
 import RequriedInput from './RequiredInput';
 import DisabledInput from './DisabledInput';
 import { BaseInputConfigProps } from '../../types';
+import FieldConfigInput from './FieldConfigInput';
 
 export default function PublicPropsInput(config: BaseInputConfigProps) {
   return (
@@ -14,6 +15,7 @@ export default function PublicPropsInput(config: BaseInputConfigProps) {
       {!config.isHideRequired ? <RequriedInput /> : null}
       {!config.isHideDisabled ? <DisabledInput /> : null}
       {!config.isHideLabelCol ? <LabelColInput /> : null}
+      <FieldConfigInput />
     </>
   )
 }
