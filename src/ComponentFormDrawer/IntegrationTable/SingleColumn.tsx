@@ -1,10 +1,11 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { Form, Input, Radio, Col, Row } from 'antd';
 
 import type { ConvertRuleConfigProps, SingleColumnConfigProps } from './types';
 import AddButton from '../../BaseComponents/AddButton';
 import { updateArray } from '../../Utils';
 import { IntegrationTableColumnConvertRulesProps } from '../../types';
+import UUIDInput from '../Public/UUIDInput';
 
 const DefaultRuleKey = '';
 const DefaultRuleValue = '';
@@ -74,16 +75,20 @@ function ConvertRuleConfig(props: ConvertRuleConfigProps) {
   );
 }
 
-export default function SingleColumnConfig(props: SingleColumnConfigProps) {
+export default function SingleColumnConfig({ onChange, ...props }: SingleColumnConfigProps) {
   const [form] = Form.useForm();
+  useEffect(() => {
+    form.setFieldsValue(props);
+  }, []);
   const onValuesChange = useCallback(
     (_: unknown, values) => {
-      props.onChange && props.onChange(values);
+      onChange && onChange(values);
     },
-    [props.onChange]
+    [onChange]
   );
   return (
     <Form form={form} onValuesChange={onValuesChange} layout='vertical'>
+      <UUIDInput />
       <Form.Item name='fieldName' label='Field Name'>
         <Input />
       </Form.Item>
