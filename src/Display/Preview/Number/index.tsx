@@ -37,7 +37,7 @@ export default function Number(props: NumberProps) {
   }, [props.labelCol]);
   return (
     <Form.Item
-      name={props.uuid}
+      name={props.fieldKey}
       rules={rules}
       label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}

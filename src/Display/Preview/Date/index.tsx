@@ -17,7 +17,7 @@ export default function Date(props: DateProps) {
   }, [props.labelCol]);
   return (
     <Form.Item
-      name={props.uuid}
+      name={props.fieldKey}
       rules={[
         {
           required: props.required,

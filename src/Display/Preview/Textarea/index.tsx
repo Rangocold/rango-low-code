@@ -31,7 +31,7 @@ export default function Textarea(props: TextareaProps) {
   }, [props.labelCol]);
   return (
     <Form.Item
-      name={props.uuid}
+      name={props.fieldKey}
       rules={rules}
       labelCol={labelCol}
       label={wrapLabelWithHint(props.label, props.hint)}

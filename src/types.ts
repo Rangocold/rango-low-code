@@ -4,7 +4,6 @@ import { HTMLInputTypeAttribute } from 'react';
 
 export interface FieldPublicProps {
   uuid: string;
-  isCustomUuid?: boolean;
 }
 
 export interface BaseInputConfigProps {
@@ -116,6 +115,7 @@ export type ComponentProps =
 
 export interface BaseInputPublicProps {
   label?: string;
+  fieldKey: string;
   required?: boolean;
   labelCol?: number;
   initialValue?: string;

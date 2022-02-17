@@ -6,11 +6,13 @@ import RequriedInput from './RequiredInput';
 import DisabledInput from './DisabledInput';
 import { BaseInputConfigProps } from '../../types';
 import FieldConfigInput from './FieldConfigInput';
+import FieldKeyInput from './FieldKeyInput';
 
 export default function PublicPropsInput(config: BaseInputConfigProps) {
   return (
     <>
       <UUIDInput />
+      <FieldKeyInput />
       <LabelInput />
       {!config.isHideRequired ? <RequriedInput /> : null}
       {!config.isHideDisabled ? <DisabledInput /> : null}

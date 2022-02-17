@@ -3,6 +3,7 @@ import { Input, Form } from 'antd';
 import PublicPropsInput from '../Public';
 import HintInput from '../Public/HintInput';
 import { BaseInputConfigProps } from '../../types';
+import FieldKeyInput from '../Public/FieldKeyInput';
 export default function Date(config: BaseInputConfigProps) {
   return (
     <>

@@ -19,7 +19,7 @@ export default function Select(props: SelectFieldProps) {
   }, [props.labelCol]);
   return (
     <Form.Item
-      name={props.uuid}
+      name={props.fieldKey}
       label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
       required={props.required}
