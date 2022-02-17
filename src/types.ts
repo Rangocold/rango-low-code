@@ -4,6 +4,7 @@ import { HTMLInputTypeAttribute } from 'react';
 
 export interface FieldPublicProps {
   uuid: string;
+  isCustomUuid?: boolean;
 }
 
 export interface BaseInputConfigProps {
@@ -16,11 +17,14 @@ export interface BaseInputConfigProps {
 
 export interface SelectFieldProps
   extends FieldPublicProps,
-    BaseInputPublicProps {
+    Omit<BaseInputPublicProps, 'fieldConfig'> {
   type: ComponentTypes.select;
   options: { label: string; value: string }[];
   single: boolean;
   hint?: string;
+  fieldConfig?: BaseInputConfigProps & {
+    isOptionCustomUuid?: boolean;
+  }
 }
 
 export interface InputProps extends FieldPublicProps, BaseInputPublicProps {
