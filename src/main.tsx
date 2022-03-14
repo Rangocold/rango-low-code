@@ -1,10 +1,10 @@
-import ReactDOM from 'react-dom'
-import './index.module.css'
+import ReactDOM from 'react-dom';
+import './index.module.css';
 import Toolbar from './Toolbar';
 import React, { useState, useCallback, useEffect } from 'react';
-import { ComponentProps } from './types';
+import { ComponentProps, ResponseProps } from './types';
 import { ComponentTypes } from './Toolbar/consts';
-import { getInitialComponentValue } from './consts';
+import { getInitialComponentValue, SuccessCode } from './consts';
 import { GlobalContext, useGlobalContextReducer } from './Stores';
 import ComponentFormDrawer from './ComponentFormDrawer';
 import { Layout } from 'antd';
@@ -12,6 +12,7 @@ import Preview from './Display/Preview';
 import style from './index.module.css';
 import { GlobalContextActionEnum } from './Stores/types';
 import 'antd/dist/antd.css';
+import axios from 'axios';
 import { PreviewComponentList } from './Display/Preview/useRegisterPreviewComponents';
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
         payload: [
           ...context.state.components,
           initialComponentValue[componentType],
-        ]
+        ],
       });
     },
     [context.state.components]
@@ -43,16 +44,26 @@ function App() {
   useEffect(() => {
     console.log(context.state.components);
   }, [context.state.components]);
+  useEffect(() => {
+    axios
+      .post('/developer/get')
+      .then((res: ResponseProps<undefined>) => {
+        if (res.code != SuccessCode) {
+          window.location.href = '/passport/github';
+        }
+      })
+      .catch(() => {
+        window.location.href = '/passport/github';
+      });
+  }, []);
   return (
     <GlobalContext.Provider value={context}>
       <Layout style={{ minHeight: '100vh' }}>
-        <Toolbar
-          onAddComponent={onAddComponent}
-        />
+        <Toolbar onAddComponent={onAddComponent} />
         <Layout.Content>
           <GlobalContext.Consumer>
             {(context) => {
-              return <Preview context={context} />
+              return <Preview context={context} />;
             }}
           </GlobalContext.Consumer>
         </Layout.Content>
@@ -62,10 +73,9 @@ function App() {
   );
 }
 
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-)
+);

@@ -122,3 +122,9 @@ export interface BaseInputPublicProps {
   disabled?: boolean;
   fieldConfig?: BaseInputConfigProps;
 }
+
+export interface ResponseProps<T> {
+  code: number;
+  message: string;
+  data: T;
+}

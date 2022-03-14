@@ -8,6 +8,8 @@ export const DefaultDateFormat = 'YYYY-MM-DD';
 export const DefaultPageNumber = 1;
 export const DefaultPageSize = 10;
 
+export const SuccessCode = 0;
+
 export const getInitialComponentValue: () => Record<
   ComponentTypes,
   ComponentProps
