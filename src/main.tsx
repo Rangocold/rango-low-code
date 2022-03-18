@@ -14,6 +14,7 @@ import { GlobalContextActionEnum } from './Stores/types';
 import 'antd/dist/antd.css';
 import axios from 'axios';
 import { PreviewComponentList } from './Display/Preview/useRegisterPreviewComponents';
+import { useLogin } from './Hooks/useLogin';
 
 function App() {
   const context = useGlobalContextReducer();
@@ -44,18 +45,7 @@ function App() {
   useEffect(() => {
     console.log(context.state.components);
   }, [context.state.components]);
-  useEffect(() => {
-    axios
-      .post('/developer/get')
-      .then((res: ResponseProps<undefined>) => {
-        if (res.code != SuccessCode) {
-          window.location.href = '/passport/github';
-        }
-      })
-      .catch(() => {
-        window.location.href = '/passport/github';
-      });
-  }, []);
+
   return (
     <GlobalContext.Provider value={context}>
       <Layout style={{ minHeight: '100vh' }}>

@@ -22,6 +22,7 @@ import { ComponentTypes } from '../../../Toolbar/consts';
 import { isNil } from 'lodash';
 import { NumOfRows, EmptyRow, SortNull } from './consts';
 import Container from '../Container';
+import request from '../../../Utils/request';
 import styles from './style.module.css';
 
 export default function IntegrationTable(props: IntegrationTableProps) {
@@ -72,18 +73,17 @@ export default function IntegrationTable(props: IntegrationTableProps) {
   const [filter, setFilter] = useState<Record<string, unknown>>();
   const requestData = useCallback(() => {
     tokenSourceRef.current = axios.CancelToken.source();
-    axios
-      .post(
-        props.url,
-        {
-          filter,
-          pagination,
-          sorter,
-        },
-        {
-          cancelToken: tokenSourceRef.current.token,
-        }
-      )
+    request(
+      props.url,
+      {
+        filter,
+        pagination,
+        sorter,
+      },
+      {
+        cancelToken: tokenSourceRef.current.token,
+      }
+    )
       .then((res) => {
         if (Array.isArray(res)) {
           setDataSource(res);
