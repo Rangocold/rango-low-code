@@ -9,7 +9,6 @@ import { GlobalContext, useGlobalContextReducer } from './Stores';
 import ComponentFormDrawer from './ComponentFormDrawer';
 import { Layout } from 'antd';
 import Preview from './Display/Preview';
-import style from './index.module.css';
 import { GlobalContextActionEnum } from './Stores/types';
 import 'antd/dist/antd.css';
 import axios from 'axios';

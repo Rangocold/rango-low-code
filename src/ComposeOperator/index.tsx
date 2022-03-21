@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { ComponentOperatorProps } from './types';
-import HeaderBackground from '../Assets/field_preview_status_bar.png';
+//import HeaderBackground from '../Assets/field_preview_status_bar.png';
 
 export default function ComponentOperator({}: ComponentOperatorProps) {
   return <div />;

@@ -1,6 +1,7 @@
 import { ComponentTypes } from './Toolbar/consts';
 import type { FormProps } from 'antd';
 import { HTMLInputTypeAttribute } from 'react';
+import { ComponentSelectionProps } from './ComponentFormDrawer/IntegrationForm/types';
 
 export interface FieldPublicProps {
   uuid: string;

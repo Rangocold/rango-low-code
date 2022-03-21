@@ -63,7 +63,11 @@ export enum ComponentTypes {
   },
 };
  */
-export const ComponentOptions = [
+export const ComponentOptions: {
+  value: ComponentTypes;
+  label: string;
+  disabled?: boolean;
+}[] = [
   {
     value: ComponentTypes.interationForm,
     label: 'Interation Form',

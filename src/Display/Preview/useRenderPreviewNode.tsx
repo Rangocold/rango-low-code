@@ -11,7 +11,7 @@ export function useRenderPreviewNode() {
       const func = register.get(component.type);
       const node =
         typeof func === 'function'
-          ? React.createElement(func, component)
+          ? React.createElement(func, component as any)
           : null;
       return React.isValidElement(node) ? (
         <Container key={component.uuid} uuid={component.uuid}>
