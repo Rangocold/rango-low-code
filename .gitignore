@@ -27,3 +27,5 @@ other.txt
 
 .VSCodeCounter/**/*
 .vscode/**/*
+
+package-lock.json
