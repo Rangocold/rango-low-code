@@ -50,9 +50,9 @@ export function parseParamsToAst(
   for (let i = leftIdx; i <= rightIdx; ++i) {
     const currentLetter = expression[i];
     if (currentLetter === LeftParenthesis) {
-      const rightIdx = parenthesisMap.get(i);
-      if ()
-      res[res.length - 1].params = parseParamsToAst(expression, i, )
+      /* const rightIdx = parenthesisMap.get(i);
+      //if ()
+      res[res.length - 1].params = parseParamsToAst(expression, i, ) */
     } else if (currentLetter === Comma) {
       res.push(getInitialAstNode());
     } else {
