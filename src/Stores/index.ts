@@ -26,6 +26,12 @@ export function reducer(
       );
       return { ...state };
     }
+    case GlobalContextActionEnum.setCurrentDeveloper: {
+      return {
+        ...state,
+        currentDeveloper: action.payload,
+      }
+    }
   }
 }
 
@@ -33,6 +39,7 @@ export const InitialContextPure: GlobalContextStateProps = {
   components: [],
   editingComponentUuid: '',
   registedComponentsMap: new Map(),
+  currentDeveloper: undefined,
 };
 
 export const GlobalContext = React.createContext<GlobalContextProps>({

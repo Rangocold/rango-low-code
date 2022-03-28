@@ -6,7 +6,7 @@ import axios, {
 } from 'axios';
 import { SuccessCode, UnauthorizedCode } from '../consts';
 import { ResponseProps } from '../types';
-const authUrl = '/rango-low-code-server/passport/github';
+export const authUrl = '/rango-low-code-server/passport/github';
 const defaultHeaders = {
   'Content-Type': 'application/json',
 };
