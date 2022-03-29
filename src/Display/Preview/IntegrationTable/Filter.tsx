@@ -21,7 +21,7 @@ export default function IntegrationTableFilters(
     <Card>
       <Form
         form={form}
-        onValuesChange={(_, values) => props.onFilterChange(values)}
+        //onValuesChange={(_, values) => props.onFilterChange(values)}
       >
         <Row gutter={16}>
           {props.components.map((component) => {

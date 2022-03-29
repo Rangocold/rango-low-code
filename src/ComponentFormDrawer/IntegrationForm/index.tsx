@@ -15,9 +15,11 @@ export function getIntegrationFormDSL(
       uuid: genUUID(),
       type: ComponentTypes.input,
       disabled: true,
+      fieldKey: '',
     },
     {
       uuid: genUUID(),
+      // @ts-ignore
       type: ComponentTypes.componentSelection,
     },
   ];

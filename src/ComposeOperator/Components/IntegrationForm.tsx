@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Button, Form } from 'antd';
-import axios from 'axios';
+import request from '../../Utils/request';
 import type { IntegrationFormProps } from '../../types';
 
 export default function IntegrationForm(config: IntegrationFormProps) {
@@ -9,7 +9,7 @@ export default function IntegrationForm(config: IntegrationFormProps) {
 
   const onSubmit = useCallback(() => {
     const data = form.getFieldsValue();
-    axios.post(config.submitUrl, data);
+    request(config.submitUrl, data);
   }, [form, config.submitUrl]);
   return (
     <div>

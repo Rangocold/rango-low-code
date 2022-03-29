@@ -1,8 +1,6 @@
 import React from 'react';
 import UUIDInput from '../Public/UUIDInput';
 import { Input, Form, Collapse, Col } from 'antd';
-import FilterConfig from './Filter';
-import TableConfig from './Table';
 
 const PanelKey = {
   Filter: 'Filter',

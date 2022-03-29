@@ -30,3 +30,5 @@ heihei.json
 
 .VSCodeCounter/**/*
 .vscode/**/*
+
+package-lock.json

@@ -1,6 +1,7 @@
 import { ComponentTypes } from './Toolbar/consts';
 import type { FormProps } from 'antd';
 import { HTMLInputTypeAttribute } from 'react';
+import { ComponentSelectionProps } from './ComponentFormDrawer/IntegrationForm/types';
 
 export interface FieldPublicProps {
   uuid: string;
@@ -121,4 +122,10 @@ export interface BaseInputPublicProps {
   initialValue?: string;
   disabled?: boolean;
   fieldConfig?: BaseInputConfigProps;
+}
+
+export interface ResponseProps<T> {
+  code: number;
+  message: string;
+  data: T;
 }

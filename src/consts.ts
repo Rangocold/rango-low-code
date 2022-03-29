@@ -8,6 +8,9 @@ export const DefaultDateFormat = 'YYYY-MM-DD';
 export const DefaultPageNumber = 1;
 export const DefaultPageSize = 10;
 
+export const SuccessCode = 0;
+export const UnauthorizedCode = 401;
+
 export const getInitialComponentValue: () => Record<
   ComponentTypes,
   ComponentProps
@@ -49,6 +52,7 @@ export const getInitialComponentValue: () => Record<
   },
   [ComponentTypes.date]: {
     uuid: genUUID(),
+    fieldKey: '',
     type: ComponentTypes.date,
     format: 'YYYY-MM-DD',
     fieldKey: '',

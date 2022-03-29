@@ -26,10 +26,10 @@ export default function Date(props: DateProps) {
       label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
       getValueProps={(value: string) => {
-        return value ? { value: dayjs(value) } : { value };
+        return { value: value ? dayjs(value) : undefined };
       }}
       getValueFromEvent={(day: Dayjs) => {
-        return day.format(props.format);
+        return day ? day.format(props.format) : undefined;
       }}
       initialValue={isNil(props.initialValue) ? undefined : dayjs(props.initialValue)}
     >
