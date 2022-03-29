@@ -1,7 +1,6 @@
 import { Comma, LeftParenthesis, RightParenthesis } from '../consts';
 import { ExpressionAstNode, ExpressionTypes } from '../types';
 import { getInitialAstNode } from './utils';
-import { isNil } from 'lodash';
 
 export function getParenthesisMap(expression: string) {
   const parenthesisMap = new Map<number, number>();
@@ -50,9 +49,12 @@ export function parseParamsToAst(
   for (let i = leftIdx; i <= rightIdx; ++i) {
     const currentLetter = expression[i];
     if (currentLetter === LeftParenthesis) {
-      /* const rightIdx = parenthesisMap.get(i);
-      //if ()
-      res[res.length - 1].params = parseParamsToAst(expression, i, ) */
+      const rightIdx = parenthesisMap.get(i);
+      if (!rightIdx) {
+        res[res.length - 1].isValid = false;
+        return res;
+      }
+      res[res.length - 1].params = parseParamsToAst(expression, i, rightIdx, parenthesisMap);
     } else if (currentLetter === Comma) {
       res.push(getInitialAstNode());
     } else {
