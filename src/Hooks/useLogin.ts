@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from 'react';
-import axios from 'axios';
 import { ResponseProps } from '../types';
 import { SuccessCode } from '../consts';
 import request, { authUrl } from '../Utils/request';
@@ -13,7 +12,7 @@ export function useLogin() {
   }, [state]);
 
   const logout = useCallback(() => {
-    axios.post('/rango-low-code-server/developer/logout').then(() => {
+    request('/rango-low-code-server/developer/logout').then(() => {
       window.location.href = authUrl;
     });
   }, []);

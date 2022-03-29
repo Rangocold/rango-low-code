@@ -8,7 +8,9 @@ import { SuccessCode, UnauthorizedCode } from '../consts';
 import { ResponseProps } from '../types';
 export const authUrl = '/rango-low-code-server/passport/github';
 const defaultHeaders = {
-  'Content-Type': 'application/json',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 };
 
 interface RespProps<S> {

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Form, Button } from 'antd';
 import { IntegrationFormProps } from '../../../types';
-import axios from 'axios';
+import request from '../../../Utils/request';
 import BaseForm from '../BaseForm';
 import style from './style.module.css';
 
@@ -11,7 +11,7 @@ export default function IntegrationForm(props: IntegrationFormProps) {
     form
       .validateFields()
       .then(() => {
-        axios.post(props.submitUrl, form.getFieldsValue());
+        request(props.submitUrl, form.getFieldsValue());
       })
       .catch((errors) => {
         form.scrollToField(errors[0].name);

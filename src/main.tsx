@@ -7,16 +7,27 @@ import { ComponentTypes } from './Toolbar/consts';
 import { getInitialComponentValue, SuccessCode } from './consts';
 import { GlobalContext, useGlobalContextReducer } from './Stores';
 import ComponentFormDrawer from './ComponentFormDrawer';
-import { Layout } from 'antd';
+import { Layout, Avatar } from 'antd';
 import Preview from './Display/Preview';
 import { GlobalContextActionEnum } from './Stores/types';
 import 'antd/dist/antd.css';
-import axios from 'axios';
 import { PreviewComponentList } from './Display/Preview/useRegisterPreviewComponents';
+import { LogoutOutlined } from '@ant-design/icons';
 import { useLogin } from './Hooks/useLogin';
+
+function TopBar({ onClick }: {onClick: () => void }) {
+  const context = useGlobalContextReducer();
+  return (
+    <Layout.Header>
+      <Avatar src={context.state.currentDeveloper?.photoUrl} />
+      <LogoutOutlined onClick={onClick} />
+    </Layout.Header>
+  );
+}
 
 function App() {
   const context = useGlobalContextReducer();
+  const { logout } = useLogin();
   useEffect(() => {
     for (const item of PreviewComponentList) {
       context.dispatch({
@@ -48,6 +59,7 @@ function App() {
   return (
     <GlobalContext.Provider value={context}>
       <Layout style={{ minHeight: '100vh' }}>
+        <TopBar onClick={logout} />
         <Toolbar onAddComponent={onAddComponent} />
         <Layout.Content>
           <GlobalContext.Consumer>
