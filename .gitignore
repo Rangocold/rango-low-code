@@ -11,6 +11,8 @@
 # production
 /build
 
+/local
+
 # misc
 .DS_Store
 .env.local
@@ -23,6 +25,7 @@ yarn-debug.log*
 yarn-error.log*
 
 other.txt
+heihei.json
 .gitconfig
 
 .VSCodeCounter/**/*

@@ -51,22 +51,26 @@ export const getInitialComponentValue: () => Record<
     uuid: genUUID(),
     type: ComponentTypes.date,
     format: 'YYYY-MM-DD',
+    fieldKey: '',
     //title: '',
   },
   [ComponentTypes.input]: {
     uuid: genUUID(),
     type: ComponentTypes.input,
     title: '',
+    fieldKey: '',
   },
   [ComponentTypes.number]: {
     uuid: genUUID(),
     type: ComponentTypes.number,
     title: '',
+    fieldKey: '',
   },
   [ComponentTypes.select]: {
     uuid: genUUID(),
     type: ComponentTypes.select,
     title: '',
+    fieldKey: '',
     single: true,
     options: [],
   },
@@ -74,6 +78,7 @@ export const getInitialComponentValue: () => Record<
     uuid: genUUID(),
     type: ComponentTypes.textarea,
     title: '',
+    fieldKey: '',
   },
   [ComponentTypes.componentSelection]: {
     // @ts-ignore

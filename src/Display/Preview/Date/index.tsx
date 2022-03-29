@@ -26,12 +26,12 @@ export default function Date(props: DateProps) {
       label={wrapLabelWithHint(props.label, props.hint)}
       labelCol={labelCol}
       getValueProps={(value: string) => {
-        return { value: dayjs(value) };
+        return value ? { value: dayjs(value) } : { value };
       }}
       getValueFromEvent={(day: Dayjs) => {
         return day.format(props.format);
       }}
-      initialValue={dayjs(props.initialValue)}
+      initialValue={isNil(props.initialValue) ? undefined : dayjs(props.initialValue)}
     >
       <DatePicker
         style={{ width: '100% '}}
