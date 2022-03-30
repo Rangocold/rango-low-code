@@ -1,3 +1,5 @@
+import { get } from 'lodash';
+
 export default {
   getInt(value: string, radix?: number | undefined) {
     return parseInt(value, radix);
@@ -17,7 +19,7 @@ export default {
   getArray(...params: unknown[]) {
     return params;
   },
-  get() {
-
+  get(obj: Object, path: keyof Object | [keyof Object]) {
+    return get(obj, path);
   }
 };
