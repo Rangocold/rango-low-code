@@ -14,38 +14,49 @@ export default function OptionsConfig({ value, onChange }: OptionsConfigProps) {
     onChange && onChange([...options]);
   }, [value, onChange]);
   const onDelete = useCallback(
-    (uuid: string) => {
-      const options = (value ?? []).filter((option) => option.value !== uuid);
-      onChange && onChange(options);
+    (idx: number) => {
+      const options = (value ?? []);
+      options.slice(idx, 1);
+      onChange && onChange([...options]);
     },
     [value, onChange]
   );
   const onChangeLabel = useCallback(
-    (uuid: string, label: string) => {
+    (idx: number, label: string) => {
       const options = value ?? [];
-      for (const option of options) {
-        if (option.value === uuid) {
-          option.label = label;
-        }
-      }
+      options[idx] = { ...options[idx], label };
 
       onChange && onChange([...options]);
     },
     [value, onChange]
   );
+  const onChangeValue = useCallback((idx: number, optionValue: string) => {
+    const options = value ?? [];
+    options[idx] = { ...options[idx], value: optionValue };
+
+    onChange && onChange([...options]);
+  }, [value, onChange]);
   return (
     <>
-      {(value ?? []).map((option) => {
+      {(value ?? []).map((option, idx) => {
         return (
           <Row>
-            <Col>
+            <Col span={3}>Label: </Col>
+            <Col span={8}>
               <Input
                 value={option.label}
-                onChange={(e) => onChangeLabel(option.value, e.target.value)}
+                onChange={(e) => onChangeLabel(idx, e.target.value)}
               />
             </Col>
-            <Col>
-              <DeleteOutlined onClick={() => onDelete(option.value)} />
+            <Col span={3}>Value: </Col>
+            <Col span={8}>
+              <Input
+                value={option.value}
+                onChange={(e) => onChangeValue(idx, e.target.value)}
+              />
+            </Col>
+            <Col span={2}>
+              <DeleteOutlined onClick={() => onDelete(idx)} />
             </Col>
           </Row>
         );

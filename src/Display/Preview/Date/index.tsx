@@ -31,7 +31,7 @@ export default function Date(props: DateProps) {
       getValueFromEvent={(day: Dayjs) => {
         return day ? day.format(props.format) : undefined;
       }}
-      initialValue={dayjs(props.initialValue)}
+      initialValue={isNil(props.initialValue) ? undefined : dayjs(props.initialValue)}
     >
       <DatePicker
         style={{ width: '100% '}}
