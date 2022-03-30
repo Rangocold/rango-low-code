@@ -55,7 +55,6 @@ export const getInitialComponentValue: () => Record<
     fieldKey: '',
     type: ComponentTypes.date,
     format: 'YYYY-MM-DD',
-    fieldKey: '',
     //title: '',
   },
   [ComponentTypes.input]: {
